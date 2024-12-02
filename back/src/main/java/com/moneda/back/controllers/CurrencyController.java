@@ -2,6 +2,7 @@ package com.moneda.back.controllers;
 
 import com.moneda.back.dto.CurrencyDto;
 import com.moneda.back.services.CurrencyService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,25 +15,28 @@ import java.util.Map;
 @AllArgsConstructor
 public class CurrencyController {
     private final CurrencyService currencyService;
-
-    @RequestMapping("/selectCombo")
+    @Operation(summary = "Obtiene todos los tipos de moneda registrados")
+    @GetMapping("/selectCombo")
     public ResponseEntity<Map<String, Object>> getCurrencies(){
         return currencyService.getCurrencies();
     }
+    @Operation(summary = "Registrar un Tipo Moneda")
     @PostMapping("/save")
     public ResponseEntity<Map<String, Object>> saveCurrency(@RequestBody CurrencyDto createCurrencyDto, BindingResult result){
         return currencyService.saveCurrency(createCurrencyDto, result);
     }
-
+    @Operation(summary = "Actualizar Tipo Moneda por Id")
     @PutMapping("/update/{id}")
     public ResponseEntity<Map<String, Object>> updateCurrency(@PathVariable Integer id, @RequestBody CurrencyDto currencyDto, BindingResult result){
         return currencyService.updateCurrency(id, currencyDto, result);
     }
-    @PutMapping("/delete/{id}")
+    @Operation(summary = "Eliminación Logica de Tipo Moneda por Id, cambia el estado active a false")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Map<String, Object>> deleteCurrency(@PathVariable Integer id){
         return currencyService.deleteCurrency(id);
     }
-    @RequestMapping("/get-by-id/{id}")
+    @Operation(summary = "Obtiene el nombre y codigo del id tipo de moneda")
+    @GetMapping("/get-by-id/{id}")
     public ResponseEntity<Map<String, Object>> getCurrencyById(@PathVariable Integer id){
         return currencyService.getCurrencyById(id);
     }
