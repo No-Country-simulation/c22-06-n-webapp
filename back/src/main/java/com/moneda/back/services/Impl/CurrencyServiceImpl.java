@@ -1,6 +1,8 @@
 package com.moneda.back.services.Impl;
 
+import com.moneda.back.dto.CurrencyDto;
 import com.moneda.back.entities.Currency;
+import com.moneda.back.mappers.CurrencyMapper;
 import com.moneda.back.repositories.CurrencyRepository;
 import com.moneda.back.services.CurrencyService;
 import lombok.AllArgsConstructor;
@@ -16,14 +18,17 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CurrencyServiceImpl implements CurrencyService {
     private final CurrencyRepository currencyRepository;
-
+    private final CurrencyMapper currencyMapper;
     @Override
     public ResponseEntity<Map<String, Object>> getCurrencies() {
         Map<String, Object> response = new HashMap<>();
-        List<Currency> currencies = currencyRepository.findAll();
+        List<CurrencyDto> currencies = currencyRepository.findAll()
+                .stream()
+                .map(currencyMapper::toCurrencyDto)
+                .collect(Collectors.toList());
         if(currencies.isEmpty()){
         response.put("message", "No hay datos");
-        response.put("currencies", Collections.emptyList());
+        response.put("currencies", Collections.emptyList());   
         }else {
             response.put("message", "Listas Tipo Moneda");
             response.put("currencies", currencies);
@@ -32,7 +37,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> saveCurrency(Currency currency, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> saveCurrency(CurrencyDto createCurrencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -43,10 +48,17 @@ public class CurrencyServiceImpl implements CurrencyService {
             return ResponseEntity.badRequest().body(response);
         }
         try{
-            Currency currencyData = currencyRepository.save(currency);
-            currencyData.setIsActive(true);
+            Currency currency = new Currency();
+            currency.setName(createCurrencyDto.getName());
+            currency.setCode(createCurrencyDto.getCode());
+            currency.setIsActive(true); //por defecto estará activo al crear una moneda
+            currencyRepository.save(currency);
+
+            CurrencyDto currencyDto = new CurrencyDto();
+            currencyDto.setCode(currency.getCode());
+            currencyDto.setName(currency.getName());
             response.put("message", "Se ha creado exitosamente");
-            response.put("currency", currencyData);
+            response.put("currency", currencyDto);
             return ResponseEntity.ok(response);
         }catch (Exception e){
             response.put("message", "Error al guardar la moneda");
@@ -56,7 +68,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, Currency currency, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, CurrencyDto currencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -66,6 +78,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             response.put("errors", errors);
             return ResponseEntity.badRequest().body(response);
         }
+
         Optional<Currency> existingCurrency = currencyRepository.findById(id);
         if (existingCurrency.isEmpty()) {
             response.put("message", "La moneda con ID '" + id + "' no existe");
@@ -73,12 +86,15 @@ public class CurrencyServiceImpl implements CurrencyService {
         }
         try {
             Currency currencyEntity = existingCurrency.get();
-            currencyEntity.setName(currency.getName());
-            currencyEntity.setCode(currency.getCode());
-
+            currencyEntity.setName(currencyDto.getName());
+            currencyEntity.setCode(currencyDto.getCode());
             Currency updatedCurrency = currencyRepository.save(currencyEntity);
+
+            CurrencyDto dto = new CurrencyDto();
+            dto.setCode(currencyEntity.getCode());
+            dto.setName(currencyEntity.getName());
             response.put("message", "Moneda actualizada correctamente");
-            response.put("currency", updatedCurrency);
+            response.put("currency", dto);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error al actualizar la moneda");
