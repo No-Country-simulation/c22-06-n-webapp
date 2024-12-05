@@ -51,6 +51,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currency = new Currency();
             currency.setName(createCurrencyDto.getName());
             currency.setCode(createCurrencyDto.getCode());
+            currency.setCreatedAt(new Date());
             currency.setIsActive(true); //por defecto estará activo al crear una moneda
             currencyRepository.save(currency);
 
@@ -88,6 +89,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currencyEntity = existingCurrency.get();
             currencyEntity.setName(currencyDto.getName());
             currencyEntity.setCode(currencyDto.getCode());
+            currencyEntity.setLastModified(new Date());
             Currency updatedCurrency = currencyRepository.save(currencyEntity);
 
             CurrencyDto dto = new CurrencyDto();

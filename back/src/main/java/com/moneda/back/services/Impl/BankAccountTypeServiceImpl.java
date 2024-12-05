@@ -52,15 +52,13 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
             BankAccountType bankAccountType = new BankAccountType();
             bankAccountType.setName(createBankAccountTypeDto.getName());
             bankAccountType.setCode(createBankAccountTypeDto.getCode());
-            bankAccountType.setBenefits(createBankAccountTypeDto.getBenefits());
-
+            bankAccountType.setCreatedAt(new Date()); //colocará la fecha actual
             bankAccountType.setIsActive(true); //por defecto estará activo al crear
             bankAccountTypeRepository.save(bankAccountType);
 
             BankAccountTypeDto bankAccountTypeDto = new BankAccountTypeDto();
             bankAccountTypeDto.setCode(bankAccountType.getCode());
             bankAccountTypeDto.setName(bankAccountType.getName());
-            bankAccountTypeDto.setBenefits(bankAccountType.getBenefits());
             response.put("message", "Se ha creado exitosamente");
             response.put("bankAccountType", bankAccountTypeDto);
             return ResponseEntity.ok(response);
@@ -92,13 +90,12 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
             BankAccountType bankAccountType = existingBankAccountType.get();
             bankAccountType.setName(updateBankAccountTypeDto.getName());
             bankAccountType.setCode(updateBankAccountTypeDto.getCode());
-            bankAccountType.setBenefits(updateBankAccountTypeDto.getBenefits());
+            bankAccountType.setLastModified(new Date()); //colocará la fecha actual
             BankAccountType updateBankAccountType = bankAccountTypeRepository.save(bankAccountType);
 
             BankAccountTypeDto dto = new BankAccountTypeDto();
             dto.setCode(bankAccountType.getCode());
             dto.setName(bankAccountType.getName());
-            dto.setBenefits(bankAccountType.getBenefits());
             response.put("message", "Tipo Cuenta Banco actualizado correctamente");
             response.put("bankAccountType", dto);
             return ResponseEntity.ok(response);
