@@ -4,6 +4,8 @@ import com.moneda.back.entities.BankAccount;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 public class CreateUserDto {
     private String firstName;
@@ -17,5 +19,5 @@ public class CreateUserDto {
     private String password;
     private String phone;
     private String photo_url;
-    private Integer bankAccount_id;
+    private List<Integer> bankAccountIds;
 }

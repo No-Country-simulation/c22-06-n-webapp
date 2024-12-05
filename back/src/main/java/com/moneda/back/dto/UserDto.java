@@ -1,12 +1,10 @@
 package com.moneda.back.dto;
-
-import com.moneda.back.entities.BankAccount;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class UserDto {
@@ -20,5 +18,6 @@ public class UserDto {
     private String email;
     private String phone;
     private String photo_url;
-    private BankAccountDto bankAccount;
+    private List<BankAccountDto> bankAccounts;
+
 }

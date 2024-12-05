@@ -53,8 +53,10 @@ public class UserServiceImpl implements UserService {
             return ResponseEntity.badRequest().body(response);
         }
         try{
-            BankAccount bankAccount = bankAccountRepository.findById(createUserDto.getBankAccount_id()).orElseThrow(()-> new RuntimeException("Cuenta Banco no encontrado"));
-
+            List<BankAccount> bankAccounts = bankAccountRepository.findAllById(createUserDto.getBankAccountIds());
+            if (bankAccounts.isEmpty()) {
+                throw new RuntimeException("No se encontraron cuentas bancarias para los IDs proporcionados");
+            }
             User user = new User();
             user.setFirstName(createUserDto.getFirstName());
             user.setLastName_p(createUserDto.getLastName_p());
@@ -65,7 +67,7 @@ public class UserServiceImpl implements UserService {
             user.setDni(createUserDto.getDni());
             user.setEmail(createUserDto.getEmail());
             user.setPassword(createUserDto.getPassword());
-            user.setBankAccount(bankAccount);
+            user.setBankAccounts(bankAccounts);
             user.setIsActive(true);
             user.setCreatedAt(new Date());
             userRepository.save(user);
@@ -99,8 +101,6 @@ public class UserServiceImpl implements UserService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         try {
-            BankAccount bankAccount = bankAccountRepository.findById(updateUserDto.getBankAccount_id()).orElseThrow(()-> new RuntimeException("Cuenta Banco no encontrado"));
-
             User user = existingUser.get();
             user.setFirstName(updateUserDto.getFirstName());
             user.setLastName_p(updateUserDto.getLastName_p());
@@ -108,6 +108,8 @@ public class UserServiceImpl implements UserService {
             user.setAddress(updateUserDto.getAddress());
             user.setBirthDate(updateUserDto.getBirthDate());
             user.setEmail(updateUserDto.getEmail());
+            user.setPhone(updateUserDto.getPhone());
+            user.setPhoto_url(updateUserDto.getPhoto_url());
             user.setLastModified(new Date()); //colocará la fecha actual
             userRepository.save(user);
 

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "usuarios")
 @Data
@@ -41,8 +42,8 @@ public class User {
     private Date lastModified;
     @Column(name = "activo")
     private Boolean isActive;
-    @OneToMany
-    @JoinColumn(name = "cuenta_banco_id", nullable = false)
-    private BankAccount bankAccount;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BankAccount> bankAccounts;
+
 }
 
