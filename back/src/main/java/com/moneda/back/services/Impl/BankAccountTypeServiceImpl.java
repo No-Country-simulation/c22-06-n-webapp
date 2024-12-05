@@ -25,7 +25,7 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
         Map<String, Object> response = new HashMap<>();
         List<BankAccountTypeDto> bankAccountTypes = bankAccountTypeRepository.findAll()
                 .stream()
-                .map(bankAccountTypeMapper::toBankAccountTypeDtoDto)
+                .map(bankAccountTypeMapper::toBankAccountTypeDto)
                 .collect(Collectors.toList());
         if(bankAccountTypes.isEmpty()){
             response.put("message", "No hay datos");

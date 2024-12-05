@@ -25,6 +25,8 @@ public class BankAccount {
     private Date createdAt;
     @Column(name = "ultima_actualizacion")
     private Date lastModified;
+    @Column(name = "activo")
+    private Boolean isActive;
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     private User user;

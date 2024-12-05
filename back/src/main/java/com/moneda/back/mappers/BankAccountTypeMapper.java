@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BankAccountTypeMapper {
-    public BankAccountTypeDto toBankAccountTypeDtoDto(BankAccountType bankAccountType) {
+    public BankAccountTypeDto toBankAccountTypeDto(BankAccountType bankAccountType) {
         BankAccountTypeDto dto = new BankAccountTypeDto();
         dto.setName(bankAccountType.getName());
         dto.setCode(bankAccountType.getCode());

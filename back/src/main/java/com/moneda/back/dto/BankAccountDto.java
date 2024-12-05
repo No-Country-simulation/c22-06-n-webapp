@@ -1,5 +1,8 @@
 package com.moneda.back.dto;
 
+import lombok.Data;
+
+@Data
 public class BankAccountDto {
     private String bankAccount;
     private String cvu;
