@@ -8,5 +8,6 @@ public class CreateBankAccountDto{
     private String cvu;
     private Double balance;
     private String alias;
-    private BankAccountType bankAccountType;
+    private Integer user_id;
+    private Integer bankAccountType_id;
 }

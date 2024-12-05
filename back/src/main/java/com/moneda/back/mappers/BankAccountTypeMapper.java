@@ -10,7 +10,6 @@ public class BankAccountTypeMapper {
         BankAccountTypeDto dto = new BankAccountTypeDto();
         dto.setName(bankAccountType.getName());
         dto.setCode(bankAccountType.getCode());
-        dto.setBenefits(bankAccountType.getBenefits());
         return dto;
     }
 }

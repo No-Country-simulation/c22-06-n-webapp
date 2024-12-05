@@ -3,6 +3,8 @@ package com.moneda.back.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Table(name = "cuenta_banco")
 @Data
 @Entity
@@ -19,6 +21,13 @@ public class BankAccount {
     private Double balance;
     @Column(name = "alias", nullable = false, columnDefinition = "CHAR(4)")
     private String alias;
+    @Column(name = "creado_en")
+    private Date createdAt;
+    @Column(name = "ultima_actualizacion")
+    private Date lastModified;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private User user;
     @ManyToOne
     @JoinColumn(name = "id_tipo_cuenta_banco", nullable = false)
     private BankAccountType bankAccountType;
