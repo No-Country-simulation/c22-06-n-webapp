@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../css/formulario.css" />
+   
+    
+    <title>Moneda-Registro</title>
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="logo">
+          <a href="../../index.html"><img src="../../assets/logo-app.png" alt="logo"></a>
+          <h2>Moneda</h2>
+      </div>
+     
+  </header>
+       
+  <main class="container">
+
+      <section class="formulario">
+
+        <div class="formulario__container">
+          <img
+            src="../../assets/status-2.png"
+            alt="Etapa dos de tres"
+            class="formulario__etapas"
+          />
+          <h2 class="formulario__titulo-texto">Reconocimento facial</h2>
+
+          <div class="tarjeta">
+          <p class="formulario__texto">
+            ¡Haga clic en la imagen de abajo para realizar la captura de su
+            imagen!
+          </p>
+
+          <img
+            src="../../assets/reconocimento.png"
+            alt="Cara con ojos y una sonrisa dentro de un marco."
+            data-video-boton
+            class="formulario__imagen"
+          />
+
+          <div class="formulario__camera" data-camera>
+            <video width="300" height="320" autoplay data-video></video>
+            <button class="camera__boton" data-tomar-foto>Tomar foto</button>
+          </div>
+
+          <div class="formulario__mensaje" data-mensaje>
+            <canvas width="300" height="320" data-video-canvas></canvas>
+            
+            <div class="mensaje-exitoso">
+               <img
+                  src="../../assets/icon_check.png"
+                  alt="Ícono de validación"
+                  class="formulario__imagen"
+                  />
+                <p>Imagen capturada con éxito</p>
+           
+              </div>  
+            <a
+              href="#"
+              class="formulario__boton formulario__boton--enlace"
+              data-enviar
+              >¡Quiero abrir mi cuenta!</a
+            >
+          </div>
+          </div>
+        
+        </div>
+
+      </section>
+    </main>
+
+       <!-- Paso 2 -->
+    <script src="../../js/camera.js"></script>
+  </body>
+</html>

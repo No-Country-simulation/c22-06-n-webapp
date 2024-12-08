@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon"  type="image/x-icon" href="../../assets/logo-app.png"/>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../css/formulario.css" />
+
+    <title>Moneda-Registro</title>
+  
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+          <a href="../../index.html"><img src="../../assets/logo-app.png" alt="logo"></a>
+          <h2>Moneda</h2>
+      </div>
+     
+  </header>
+
+    <main class="container">
+
+      <section class="formulario">
+
+        <div class="formulario__container">
+          <img
+            src="../../assets/status-1.png"
+            alt="Etapa uno de tres"
+            class="formulario__etapas"
+          />
+          <h2 class="formulario__titulo-texto">
+            ¡Completa los campos a continuación para crear tu cuenta!
+          </h2>
+        </div>
+
+        <form class="principal__formulario" data-formulario>
+
+          <fieldset class="formulario__campo">
+
+            <label class="campo__etiqueta" for="nombre">Nombre</label>
+            <input
+              name="nombre"
+              id="nombre"
+              class="campo__completo"
+              type="text"
+              minlength="3"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="email">E-mail</label>
+            <input
+              name="email"
+              id="email"
+              class="campo__completo"
+              type="email"
+              minlength="4"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="identificacion"
+              >DNI</label
+            >
+            <input
+              name="identificacion"
+              id="identificacion"
+              class="campo__completo campo__completo--menor"
+              type="text"
+              minlength="8"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="cuil"
+              >CUIL(Sin guiones)</label>
+            
+            <input
+              name="cuil"
+              id="cuil"
+              class="campo__completo campo__completo--menor"
+              type="text"
+              minlength="11"
+              maxlength="13"
+              pattern="\d{2}-?\d{8}-?\d{1}"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="fecha_nacimiento">
+              Fecha de nacimiento
+            </label>
+            <input
+              name="fecha_nacimiento"
+              id="fecha_nacimiento"
+              class="campo__completo campo__completo--menor"
+              type="date"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+          <fieldset class="formulario__terminos">
+            <input
+              name="terminos"
+              class="terminos__input"
+              type="checkbox"
+              required
+            />
+            <p class="terminos__texto">
+              He leído y conozco las condiciones para el tratamiento de mis
+              datos descrito en las <a href="#">Políticas de Privacidad</a>.
+            </p>
+            <span class="mensaje-error"></span>
+          </fieldset>
+
+          <div>
+            <input
+              value="Siguiente"
+              class="formulario__boton"
+              id="enviar"
+              data-boton-enviar
+              type="submit"
+             
+            />
+            <span class="mensaje-error"></span>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="../../js/formulario.js" type="module"></script>
+  </body>
+</html>
