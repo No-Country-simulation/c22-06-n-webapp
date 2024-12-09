@@ -12,6 +12,7 @@ import com.moneda.back.repositories.BankAccountRepository;
 import com.moneda.back.repositories.BankAccountTypeRepository;
 import com.moneda.back.repositories.UserRepository;
 import com.moneda.back.services.BankAccountService;
+import com.moneda.back.utils.BankAccountGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,7 @@ public class BankAccountServiceImpl implements BankAccountService {
     private final UserRepository userRepository;
     private final BankAccountMapper bankAccountMapper;
     private final BankAccountTypeMapper bankAccountTypeMapper;
+
     @Override
     public ResponseEntity<Map<String, Object>> listBankAccounts() {
         Map<String, Object> response = new HashMap<>();
@@ -58,14 +60,25 @@ public class BankAccountServiceImpl implements BankAccountService {
             return ResponseEntity.badRequest().body(response);
         }
         try{
+            if (bankAccountRepository.existsByBankAccount(createBankAccount.getBankAccount())) {
+                response.put("message", "El número de cuenta ya existe");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            }
+
+            if (bankAccountRepository.existsByAlias(createBankAccount.getAlias())) {
+                response.put("message", "El alias ya existe");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            }
             User user = userRepository.findById(createBankAccount.getUser_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
             BankAccountType bankAccountType = bankAccountTypeRepository.findById(createBankAccount.getBankAccountType_id()).orElseThrow(()-> new RuntimeException("Tipo Cuenta Banco no encontrado"));
-
+            String accountNumber = BankAccountGenerator.generateAccountNumber();
+            String cvu = BankAccountGenerator.generateCvu(accountNumber, "123", "4567");
+            String alias = BankAccountGenerator.generateAlias();
             BankAccount bankAccount = new BankAccount();
             bankAccount.setBankAccount(createBankAccount.getBankAccount());
-            bankAccount.setCvu(createBankAccount.getCvu());
+            bankAccount.setCvu(cvu);
             bankAccount.setBalance(createBankAccount.getBalance());
-            bankAccount.setAlias(createBankAccount.getAlias());
+            bankAccount.setAlias(alias);
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);
             bankAccount.setIsActive(true);
