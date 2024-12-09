@@ -1,8 +1,12 @@
 package com.moneda.back.controllers;
 
+import com.moneda.back.dto.BankAccountDto;
 import com.moneda.back.dto.CurrencyDto;
 import com.moneda.back.services.CurrencyService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,9 @@ import java.util.Map;
 public class CurrencyController {
     private final CurrencyService currencyService;
     @Operation(summary = "Obtiene todos los tipos de moneda registrados")
+    @ApiResponse(responseCode = "200", description = "Listado de monedas",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = CurrencyDto.class)))
     @GetMapping("/selectCombo")
     public ResponseEntity<Map<String, Object>> getCurrencies(){
         return currencyService.getCurrencies();

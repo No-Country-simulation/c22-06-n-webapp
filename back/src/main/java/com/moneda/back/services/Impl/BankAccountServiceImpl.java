@@ -34,7 +34,7 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Override
     public ResponseEntity<Map<String, Object>> listBankAccounts() {
         Map<String, Object> response = new HashMap<>();
-        List<BankAccountDto> bankAccounts = bankAccountRepository.findAll()
+        List<BankAccountDto> bankAccounts = bankAccountRepository.findByIsActiveTrue()
                 .stream()
                 .map(bankAccountMapper::toBankAccountDto)
                 .collect(Collectors.toList());

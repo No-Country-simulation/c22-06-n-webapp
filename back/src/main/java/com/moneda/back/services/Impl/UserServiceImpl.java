@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<Map<String, Object>> listUsers() {
         Map<String, Object> response = new HashMap<>();
-        List<UserDto> users = userRepository.findAll()
+        List<UserDto> users = userRepository.findByIsActiveTrue()
                 .stream()
                 .map(userMapper::toUserDto)
                 .toList();
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
             response.put("message", "No hay datos");
             response.put("Users", Collections.emptyList());
         }else {
-            response.put("message", "Listas Usuarios");
+            response.put("message", "Listas de Usuarios activos");
             response.put("Users", users);
         }
         return ResponseEntity.ok(response);

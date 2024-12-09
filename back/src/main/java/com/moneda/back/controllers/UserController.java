@@ -1,12 +1,12 @@
 package com.moneda.back.controllers;
 
-import com.moneda.back.dto.CreateBankAccountDto;
-import com.moneda.back.dto.CreateUserDto;
-import com.moneda.back.dto.UpdateBankAccountDto;
-import com.moneda.back.dto.UpdateUserDto;
+import com.moneda.back.dto.*;
 import com.moneda.back.services.BankAccountService;
 import com.moneda.back.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,9 @@ import java.util.Map;
 public class UserController {
     private final UserService userService;
     @Operation(summary = "Obtiene todos los Usuarios registrados")
+    @ApiResponse(responseCode = "200", description = "Listado de usuarios activos",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = UserDto.class)))
     @GetMapping("/selectCombo")
     public ResponseEntity<Map<String, Object>> listUsers(){
         return userService.listUsers();
