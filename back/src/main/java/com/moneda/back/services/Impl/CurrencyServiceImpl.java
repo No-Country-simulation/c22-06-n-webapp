@@ -51,6 +51,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currency = new Currency();
             currency.setName(createCurrencyDto.getName());
             currency.setCode(createCurrencyDto.getCode());
+            currency.setSymbol(createCurrencyDto.getSymbol());
             currency.setCreatedAt(new Date());
             currency.setIsActive(true); //por defecto estará activo al crear una moneda
             currencyRepository.save(currency);
@@ -58,6 +59,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             CurrencyDto currencyDto = new CurrencyDto();
             currencyDto.setCode(currency.getCode());
             currencyDto.setName(currency.getName());
+            currencyDto.setSymbol(currency.getSymbol());
             response.put("message", "Se ha creado exitosamente");
             response.put("currency", currencyDto);
             return ResponseEntity.ok(response);
@@ -89,12 +91,14 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currencyEntity = existingCurrency.get();
             currencyEntity.setName(currencyDto.getName());
             currencyEntity.setCode(currencyDto.getCode());
+            currencyEntity.setSymbol(currencyDto.getSymbol());
             currencyEntity.setLastModified(new Date());
             Currency updatedCurrency = currencyRepository.save(currencyEntity);
 
             CurrencyDto dto = new CurrencyDto();
             dto.setCode(currencyEntity.getCode());
             dto.setName(currencyEntity.getName());
+            dto.setSymbol(currencyEntity.getSymbol());
             response.put("message", "Moneda actualizada correctamente");
             response.put("currency", dto);
             return ResponseEntity.ok(response);

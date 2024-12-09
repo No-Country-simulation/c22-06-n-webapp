@@ -1,6 +1,4 @@
 package com.moneda.back.dto;
-
-import com.moneda.back.entities.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +6,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BankAccountTypeDto {
+public class UpdateBankAccountTypeDto {
     private String name;
     private String code;
-    private CurrencyDto currency;
+    private Integer currency_id;
 }

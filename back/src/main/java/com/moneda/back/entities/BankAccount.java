@@ -1,5 +1,6 @@
 package com.moneda.back.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,6 +30,7 @@ public class BankAccount {
     private Boolean isActive;
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
+    @JsonBackReference
     private User user;
     @ManyToOne
     @JoinColumn(name = "id_tipo_cuenta_banco", nullable = false)

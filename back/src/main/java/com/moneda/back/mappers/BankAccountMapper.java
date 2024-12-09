@@ -11,7 +11,8 @@ public class BankAccountMapper {
     public BankAccountDto toBankAccountDto(BankAccount bankAccount) {
         BankAccountDto dto = new BankAccountDto();
         dto.setBankAccount(bankAccount.getBankAccount());
-        dto.setCvu(bankAccount.getBankAccount());
+        dto.setUser_id(bankAccount.getUser().getId());
+        dto.setCvu(bankAccount.getCvu());
         dto.setBankAccountType(bankAccountTypeMapper.toBankAccountTypeDto(bankAccount.getBankAccountType()));
         dto.setBalance(bankAccount.getBalance());
         dto.setAlias(bankAccount.getAlias());

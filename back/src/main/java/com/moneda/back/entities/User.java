@@ -1,8 +1,10 @@
 package com.moneda.back.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,7 +45,8 @@ public class User {
     @Column(name = "activo")
     private Boolean isActive;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BankAccount> bankAccounts;
+    @JsonManagedReference
+    private List<BankAccount> bankAccounts = new ArrayList<>();
 
 }
 

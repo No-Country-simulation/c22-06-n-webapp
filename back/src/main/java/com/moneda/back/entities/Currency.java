@@ -18,6 +18,8 @@ public class Currency {
     private String name;
     @Column(name = "codigo", length = 100, nullable = false)
     private String code;
+    @Column(name = "simbolo", nullable = false)
+    private String symbol;
     @Column(name = "creado_en")
     private Date createdAt;
     @Column(name = "ultima_actualizacion")

@@ -77,7 +77,7 @@ public class BankAccountServiceImpl implements BankAccountService {
             BankAccount bankAccount = new BankAccount();
             bankAccount.setBankAccount(createBankAccount.getBankAccount());
             bankAccount.setCvu(cvu);
-            bankAccount.setBalance(createBankAccount.getBalance());
+            bankAccount.setBalance(0.0);
             bankAccount.setAlias(alias);
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);

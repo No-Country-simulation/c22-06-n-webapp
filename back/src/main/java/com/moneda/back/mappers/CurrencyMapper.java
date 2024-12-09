@@ -10,6 +10,7 @@ public class CurrencyMapper {
         CurrencyDto dto = new CurrencyDto();
         dto.setName(currency.getName());
         dto.setCode(currency.getCode());
+        dto.setSymbol(currency.getSymbol());
         return dto;
     }
 }

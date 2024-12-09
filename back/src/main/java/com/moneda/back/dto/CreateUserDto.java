@@ -19,5 +19,5 @@ public class CreateUserDto {
     private String password;
     private String phone;
     private String photo_url;
-    private List<Integer> bankAccountIds;
+    private Integer bankAccountType_id;
 }

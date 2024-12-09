@@ -1,5 +1,4 @@
 package com.moneda.back.entities;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,4 +22,7 @@ public class BankAccountType {
     private Date lastModified;
     @Column(name = "activo")
     private Boolean isActive;
+    @ManyToOne
+    @JoinColumn(name = "id_moneda", nullable = false)
+    private Currency currency;
 }

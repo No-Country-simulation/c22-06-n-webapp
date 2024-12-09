@@ -6,4 +6,5 @@ import lombok.Data;
 public class CurrencyDto {
     private String name;
     private String code;
+    private String symbol;
 }

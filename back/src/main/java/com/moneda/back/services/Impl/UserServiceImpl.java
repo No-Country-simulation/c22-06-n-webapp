@@ -2,12 +2,16 @@ package com.moneda.back.services.Impl;
 
 import com.moneda.back.dto.*;
 import com.moneda.back.entities.BankAccount;
+import com.moneda.back.entities.BankAccountType;
 import com.moneda.back.entities.User;
-import com.moneda.back.mappers.BankAccountMapper;
 import com.moneda.back.mappers.UserMapper;
 import com.moneda.back.repositories.BankAccountRepository;
+import com.moneda.back.repositories.BankAccountTypeRepository;
+import com.moneda.back.repositories.UserBankAccountRepository;
 import com.moneda.back.repositories.UserRepository;
 import com.moneda.back.services.UserService;
+import com.moneda.back.utils.BankAccountGenerator;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +26,9 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-    private final BankAccountMapper bankAccountMapper;
     private final BankAccountRepository bankAccountRepository;
+    private final UserBankAccountRepository userBankAccountRepository;
+    private final BankAccountTypeRepository bankAccountTypeRepository;
     @Override
     public ResponseEntity<Map<String, Object>> listUsers() {
         Map<String, Object> response = new HashMap<>();
@@ -40,23 +45,21 @@ public class UserServiceImpl implements UserService {
         }
         return ResponseEntity.ok(response);
     }
-
+    @Transactional
     @Override
     public ResponseEntity<Map<String, Object>> saveUser(CreateUserDto createUserDto, BindingResult bindingResult) {
         Map<String, Object> response = new HashMap<>();
-        if(bindingResult.hasErrors()){
+
+        if (bindingResult.hasErrors()) {
             List<String> errors = bindingResult.getFieldErrors().stream()
-                    .map(err->"El campo '" + err.getField() + "' " + err.getDefaultMessage())
+                    .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
                     .collect(Collectors.toList());
             response.put("message", "Error en la validación");
             response.put("errors", errors);
             return ResponseEntity.badRequest().body(response);
         }
-        try{
-            List<BankAccount> bankAccounts = bankAccountRepository.findAllById(createUserDto.getBankAccountIds());
-            if (bankAccounts.isEmpty()) {
-                throw new RuntimeException("No se encontraron cuentas bancarias para los IDs proporcionados");
-            }
+
+        try {
             User user = new User();
             user.setFirstName(createUserDto.getFirstName());
             user.setLastName_p(createUserDto.getLastName_p());
@@ -67,21 +70,35 @@ public class UserServiceImpl implements UserService {
             user.setDni(createUserDto.getDni());
             user.setEmail(createUserDto.getEmail());
             user.setPassword(createUserDto.getPassword());
-            user.setBankAccounts(bankAccounts);
             user.setIsActive(true);
-            user.setCreatedAt(new Date());
+
+            BankAccountType bankAccountType = bankAccountTypeRepository.findById(createUserDto.getBankAccountType_id())
+                    .orElseThrow(() -> new RuntimeException("Tipo de cuenta bancaria no encontrado"));
+
+            BankAccount bankAccount = new BankAccount();
+            bankAccount.setBankAccount(BankAccountGenerator.generateAccountNumber());
+            bankAccount.setCvu(BankAccountGenerator.generateCvu(bankAccount.getBankAccount(), "123", "4567"));
+            bankAccount.setAlias(BankAccountGenerator.generateAlias());
+            bankAccount.setBalance(0.0);
+            bankAccount.setBankAccountType(bankAccountType);
+            bankAccount.setUser(user);
+
+            user.getBankAccounts().add(bankAccount);
+
             userRepository.save(user);
 
             UserDto userDto = userMapper.toUserDto(user);
-            response.put("message", "Se ha creado exitosamente");
-            response.put("User", userDto);
+            response.put("message", "Usuario creado exitosamente");
+            response.put("user", userDto);
             return ResponseEntity.ok(response);
-        }catch (Exception e){
-            response.put("message", "Error al registrar el usuario");
+
+        } catch (Exception e) {
+            response.put("message", "Error al registrar el usuario y la cuenta bancaria");
             response.put("error", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
 
     @Override
     public ResponseEntity<Map<String, Object>> updateUser(Integer id, UpdateUserDto updateUserDto, BindingResult bindingResult) {

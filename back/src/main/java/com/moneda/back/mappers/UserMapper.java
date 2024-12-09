@@ -19,10 +19,11 @@ public class UserMapper {
     private final BankAccountMapper bankAccountMapper;
     public UserDto toUserDto(User user) {
         UserDto dto = new UserDto();
+        dto.setUser_id(user.getId());
         dto.setFirstName(user.getFirstName());
         dto.setLastName_p(user.getLastName_p());
         dto.setLastName_m(user.getLastName_m());
-        dto.setDni(user.getDni());
+        dto.setAddress(user.getAddress());
         dto.setBirthDate(user.getBirthDate());
         dto.setCuil(user.getCuil());
         dto.setEmail(user.getEmail());

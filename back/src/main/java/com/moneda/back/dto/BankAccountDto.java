@@ -13,6 +13,6 @@ public class BankAccountDto {
     private String cvu;
     private Double balance;
     private String alias;
-    private String user_dni;
+    private Integer user_id;
     private BankAccountTypeDto bankAccountType;
 }

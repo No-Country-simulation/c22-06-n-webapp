@@ -1,9 +1,15 @@
 package com.moneda.back.services.Impl;
 
+import com.moneda.back.dto.BankAccountDto;
 import com.moneda.back.dto.BankAccountTypeDto;
+import com.moneda.back.dto.CreateBankAccountTypeDto;
+import com.moneda.back.dto.UpdateBankAccountTypeDto;
 import com.moneda.back.entities.BankAccountType;
+import com.moneda.back.entities.Currency;
+import com.moneda.back.entities.User;
 import com.moneda.back.mappers.BankAccountTypeMapper;
 import com.moneda.back.repositories.BankAccountTypeRepository;
+import com.moneda.back.repositories.CurrencyRepository;
 import com.moneda.back.services.BankAccountTypeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +26,7 @@ import java.util.stream.Collectors;
 public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
     private final BankAccountTypeRepository bankAccountTypeRepository;
     private final BankAccountTypeMapper bankAccountTypeMapper;
+    private final CurrencyRepository currencyRepository;
     @Override
     public ResponseEntity<Map<String, Object>> listBankAccountTypes() {
         Map<String, Object> response = new HashMap<>();
@@ -38,7 +45,7 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> saveBankAccountType(BankAccountTypeDto createBankAccountTypeDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> saveBankAccountType(CreateBankAccountTypeDto createBankAccountTypeDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -52,13 +59,14 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
             BankAccountType bankAccountType = new BankAccountType();
             bankAccountType.setName(createBankAccountTypeDto.getName());
             bankAccountType.setCode(createBankAccountTypeDto.getCode());
+            Currency currency = currencyRepository.findById(createBankAccountTypeDto.getCurrency_id())
+                    .orElseThrow(() -> new RuntimeException("Moneda no encontrada"));
+            bankAccountType.setCurrency(currency);
             bankAccountType.setCreatedAt(new Date()); //colocará la fecha actual
             bankAccountType.setIsActive(true); //por defecto estará activo al crear
             bankAccountTypeRepository.save(bankAccountType);
 
-            BankAccountTypeDto bankAccountTypeDto = new BankAccountTypeDto();
-            bankAccountTypeDto.setCode(bankAccountType.getCode());
-            bankAccountTypeDto.setName(bankAccountType.getName());
+            BankAccountTypeDto bankAccountTypeDto = bankAccountTypeMapper.toBankAccountTypeDto(bankAccountType);
             response.put("message", "Se ha creado exitosamente");
             response.put("bankAccountType", bankAccountTypeDto);
             return ResponseEntity.ok(response);
@@ -70,7 +78,7 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> updateBankAccountType(Integer id, BankAccountTypeDto updateBankAccountTypeDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> updateBankAccountType(Integer id, UpdateBankAccountTypeDto updateBankAccountTypeDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -90,14 +98,15 @@ public class  BankAccountTypeServiceImpl implements BankAccountTypeService {
             BankAccountType bankAccountType = existingBankAccountType.get();
             bankAccountType.setName(updateBankAccountTypeDto.getName());
             bankAccountType.setCode(updateBankAccountTypeDto.getCode());
+            Currency currency = currencyRepository.findById(updateBankAccountTypeDto.getCurrency_id())
+                    .orElseThrow(() -> new RuntimeException("Moneda no encontrada"));
+            bankAccountType.setCurrency(currency);
             bankAccountType.setLastModified(new Date()); //colocará la fecha actual
             BankAccountType updateBankAccountType = bankAccountTypeRepository.save(bankAccountType);
 
-            BankAccountTypeDto dto = new BankAccountTypeDto();
-            dto.setCode(bankAccountType.getCode());
-            dto.setName(bankAccountType.getName());
+            BankAccountTypeDto bankAccountTypeDto = bankAccountTypeMapper.toBankAccountTypeDto(updateBankAccountType);
             response.put("message", "Tipo Cuenta Banco actualizado correctamente");
-            response.put("bankAccountType", dto);
+            response.put("bankAccountType", bankAccountTypeDto);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error al actualizar el Tipo de Cuenta Banco");
