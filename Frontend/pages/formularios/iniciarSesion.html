@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"  type="image/x-icon" href="../../assets/logo-app.png"/>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../css/iniciarSesion.css" />
+
+    <title>moneda-Iniciar sesión</title>
+</head>
+<body>
+    <main>
+
+        <div class="logo">
+            <img src="../../assets/logo-app.png" alt="logo moneda">
+        </div>
+        
+        <section class="container-formulario">
+
+            <form class="form" name="formulario" data-formulario>
+         
+                <div class="tarjeta">           
+                    <fieldset class="campo">
+                        <input type="email" name="email" id="email" placeholder="Usuario(mail)"  required>
+                        <span class="mensaje-error"></span>
+                
+                        <input type="password" name="pasword" id="password" placeholder="Password" required>
+                        <span class="mensaje-error"></span>
+                    </fieldset>
+
+                    <div class="sin-cuenta">
+                        <a href="../formularios/abrir-cuenta-form.html">¿No tienes una cuenta?</a>
+                    
+                     </div>
+
+                </div>  
+
+                <fieldset class="checkbox">
+                    <input
+                      name="terminos"
+                      class="terminos__input"
+                      type="checkbox"
+                    
+                    />
+                    <p class="terminos__texto">
+                     Recordar usuario.
+                    </p>
+                </fieldset>  
+
+                
+                <div class="botones">
+                    <button class="principal" type="submit" id="enviar">Ingresar</button>
+                    <button class="secundario"><a href="../../index.html">Cancelar</a></button>
+                
+
+                    <div class="sin-contraseña">
+                        <a href="#">¿Has olvidado tu contraseña?</a>
+                
+                    </div>
+                </div> 
+                
+            </form>
+
+        </section>
+   
+  
+    </main>
+
+    <script src="../../js/inicioSesion.js" type="module"></script>
+    
+</body>
+</html>

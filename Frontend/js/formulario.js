@@ -1,9 +1,12 @@
 import esUnCUIT from "./validar-cuit.js";
 import esMayorDeEdad from "./validar-edad.js";
+import esContraseñaValida from "./validar-contraseña.js"; 
 import { tiposError, mensajes } from "./customErrors.js";
+import esContraseñaValida from "./validar-contraseña.js";
 
 const camposDeFormulario = document.querySelectorAll("[required");
 const formulario = document.querySelector("[data-formulario]");
+
 
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -13,6 +16,7 @@ formulario.addEventListener("submit", (e) => {
     identificacion: e.target.elements["identificacion"].value,
     cuil: e.target.elements["cuil"].value,
     fecha_nacimiento: e.target.elements["fecha_nacimiento"].value,
+    password: e.target.elements["password"].value,
   };
   localStorage.setItem("registro", JSON.stringify(listaRespuestas));
   window.location.href = "./abrir-cuenta-form-2.html";
@@ -33,6 +37,7 @@ function verificarCampo(campo) {
   if (campo.name == "fecha_nacimiento" && campo.value != "") {
     esMayorDeEdad(campo);
   }
+ 
   //campos validity
   tiposError.forEach((error) => {
     if (campo.validity[error]) {
