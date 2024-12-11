@@ -29,6 +29,259 @@
     --color-titulos: #008A90;
 }
 
+/*header-principal*/
+#header-principal {
+    width: 100%;
+    height: 6vw;
+    background: var(--color-background-oscuro);
+    padding: 0.5vw 4vw;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  
+}
+
+.usuario {
+    width: 9vw;
+    height: 3.5vw;
+    background-color: var(--color-logo);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 1vw;
+    gap: 1vw;
+    
+  
+    img {
+        width: 3.3vw;
+        height: 3.3vw;
+        text-align: center;
+        border: 2px solid gray;
+        border-radius: 100%;
+    }
+
+
+}
+
+.usuario button {
+    width: 4vw;
+    height: 3.5vw;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    
+
+    i {
+        color: var(--color-texto-boton);
+        font-size: 3vw;
+        text-align: center;
+    }
+}
+
+
+.logo {
+   width: 5vw;
+   height: 5vw;
+          
+}
+
+.iconos {
+    font-size: 2.6vw;
+    color: var(--color-logo);
+    display: flex;
+    align-items: center;
+    gap: 4vw;
+    
+}   
+
+.iconos button {
+    width: 2.8vw;
+    height: 2.8vw;
+    border: none;
+    background-color: var(--color-logo);
+
+    i{
+        font-size: 2.8vw;
+        color: var(--color-hover)
+    }
+
+}
+
+/*desplegable menu*/
+
+aside {
+    width: 28%;
+    height: auto;
+    background: var(--color-background);
+    border: 1px solid var(--color-hover);
+    box-shadow: var(--box-shadow);
+    display: none;
+        
+}
+
+
+.menu {
+ position: absolute;
+ right: 0;
+ padding: 2vw;
+    
+    button {
+        position: absolute;
+        right: 15px;
+        text-align: right;
+        align-items: first baseline;
+        margin-right: 1vw;
+        border-radius: 100%;
+        width: 2.2vw;
+        height: 2.2vw;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+    
+       img {
+        width: 2.2vw;
+        height: 2.2vw;
+        text-align: center;
+        margin-right: 2vw;
+       }
+    
+    
+    }
+
+}
+
+.menu ul {
+    width: 100%;
+    margin: 3vw 0;
+
+
+    
+    img {
+        width: 4vw;
+        height: 4vw;
+        
+    }
+
+
+    a {
+        color: var(--color-texto-comun);
+        font-size: 2vw;
+        font-family: var(--font-titulos);
+        text-align: left;
+    }
+}
+
+.menu ul li {
+       
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+ 
+    padding: 5px;
+   
+}
+
+.menu ul li:hover {
+    background-color: var(--color-hover);
+    cursor: pointer;
+    width: 120%;
+}
+
+.menu .borde {
+    border-bottom: 1px solid var(--color-hover);
+}
+
+/*desplegable perfil*/
+
+.perfil-usuario {
+    padding: 1.5vw 0;
+}
+   
+.perfil-usuario .tarjeta {
+    width: 85%;
+    height: auto;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-hover);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 2vw;
+    margin: 2vw;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    h3 {
+        font-family: var(--font-titulos);
+        font-size: 2vw;
+        color: var(--color-background-oscuro);
+    }
+
+    button {
+        width: 3vw;
+        height: 3vw;
+        cursor: pointer;
+        border: none;
+    }
+
+    i {
+        font-size: 3vw;
+    }
+
+}
+
+.encabezado-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    margin-left: 7vw;
+    font-size: 2vw;
+
+    img {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.perfil-usuario .encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-titulos);
+    color: var(--color-texto-comun);
+    margin-bottom: 1.5vw;
+
+    img {
+        width: 3vw;
+        height: 2vw;
+        text-align: center;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+    }
+}
 
 
 
