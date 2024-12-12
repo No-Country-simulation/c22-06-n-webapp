@@ -9,10 +9,12 @@ body {
 .logo img{
     position: absolute;
     top: 6vw;
-    left: 42vw;
+    left: 44vw;
     text-align: center;
-    width: 11vw;
-    height: 11vw;
+    min-width: 6em;
+    min-height: 6em;
+    width: 9w;
+    height: 9vw;
 }
 
 .container-formulario {
