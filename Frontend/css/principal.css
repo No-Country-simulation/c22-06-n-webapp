@@ -352,6 +352,11 @@ aside {
         font-size: 1.3rem;
         font-family: var(--font-titulos);
     }
+
+    img {
+        width: 8vw;
+        height: 7vw;
+    }
 }
 
 #monto-verde {
@@ -365,7 +370,7 @@ aside {
 .container-movimientos {
     display: block;
 
-}
+  }
 
 .individual-movimientos {
     display: flex;
@@ -478,118 +483,8 @@ aside {
 }   
 
 
-
-
-
-
-
-
-
-
 @media(max-width: 700px) {
     
-    header {
-        height: 8vw;
-               
-    }
-
-    .usuario {
-        width: 12vw;
-        height: 5vw;
-        padding: auto 0;
-
-        i {
-            font-size: 5vw;
-        }
-
-        img {
-            width: 5vw;
-            height: 5vw;
-        }
-    }
-
-    .logo {
-         width: 6vw;
-         height: 6vw;
-    }
-
-    .iconos {
-
-        i {
-            font-size: 4vw;
-        }
-
-        button {
-            width: 5vw;
-            height: 4vw;
-        }
-    }
-
-    aside {
-        width: 50%;
-
-        img {
-            width: 6vw;
-        }
-
-        a {
-            font-size: 4vw;
-        }
-
-      
-    }
-
-    .menu {
-
-        button {
-            width: 5vw;
-            height: 5vw;
-        }
-
-        img {
-            width: 4vw;
-            height: 4vw;
-        }
-    }
-
-    .menu ul li a {
-        font-size: 4vw;
-
-       
-    }
-
-    .menu ul li img {
-        width: 7vw;
-        height: 7vw;
-    }
-    
-    .perfil-usuario {
-       
-        h3 {
-            font-size: 3vw;
-        }
-
-        p {
-            font-size: 2.5vw;
-        }
-
-    }
-
-   .perfil-usuario .encabezado {
-
-        button {
-            width: 5vw;
-            height: 5vw;
-            background: transparent;
-
-        }
-
-        img {
-            width: 5vw;
-            height: 4vw;
-        }
-    }
-
     .principal .tarjeta {
         width: 91%;
         
@@ -614,6 +509,7 @@ aside {
         }
     }
 
+  
     .contacto {
         width: 91%;
     }
@@ -685,23 +581,7 @@ aside {
         }
 
     }    
-
-       
-        footer {
-            height: auto;
-            padding-bottom: 15vw;
-            
-            li {
-                font-size: 0.7rem;
-                
-            }
-                  
-        }
-
-        .intregantes {
-            margin-bottom: 1vw;
-            margin-left: 0.4vw;
-        }
+              
 
 }
 

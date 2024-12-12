@@ -181,3 +181,33 @@
     font-size: 1.2rem;
     }
 }
+
+@media(max-width: 700px){
+
+    .principal .tarjeta {
+        width: 91%;
+        margin: 4vw auto;
+
+        h1 {
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-size: 0.7rem;
+            margin-left: 2%;
+        }
+
+        img {
+            width: 6vw;
+            height: 6vw;
+        }
+    }
+
+    .botones {
+        width: 91%;
+        
+        button {
+            height: 35px;
+        }
+    }
+}
