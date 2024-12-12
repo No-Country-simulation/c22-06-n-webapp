@@ -1,0 +1,214 @@
+@import url(../css/stylesGlobales.css);
+
+
+.principal {
+ background: var(--color-background);
+ padding: 3vw 0;
+
+ h1 {
+    color: var(--color-logo);
+    font-size: 2rem;
+    font-family: var(--font-titulos);
+    text-align: center;
+    padding: 3vw auto;
+
+ }
+
+ h2 {
+    color: var(--color-texto-comun);
+    font-size: 1.3rem;
+    text-align: left;
+    margin-left: 17.5%;
+    margin-bottom: -2vw;
+
+ }
+
+}
+
+
+.principal .tarjeta {
+    width: 65%;
+    height: auto;
+    margin: 3vw auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-hover);
+
+}
+
+.importe {
+    padding: 3vw;
+
+    p{
+        font-size: 1.2rem;
+        color: var(--color-texto-gris);
+        text-align: center;
+        font-family: var(--font-texto-comun);
+    }
+
+    h3 {
+        color: var(--color-logo);
+        font-family: var(--font-titulos);
+        font-size: 2rem;
+        text-align: center;
+        margin: 2vw auto;
+        font-weight: 500;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #818181;
+    }
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw 5vw;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 7px;
+
+        h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--color-texto-comun);
+            font-family: var(--font-texto-comun);
+        }
+    }
+
+    img {
+        width: 2vw;
+        height: 2vw;
+        text-align: center;
+    }
+
+    button {
+        width: 3vw;
+        height: 3vw;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+
+    i {
+        font-size: 2vw;
+    }
+
+}
+
+.cuentas {
+    p{
+        font-size: 1rem;
+        color: var(--color-texto-gris);
+        font-family: var(--font-texto-comun);
+        text-align: left;
+        margin-left: 7vw;
+        margin-top: -2vw;
+    }
+
+    h3 {
+        
+        margin-left: 7vw;
+        margin-top: 5px;
+    }
+}
+
+.cuentas-individuales {
+    padding-bottom: 2vw;
+    border-bottom: 1px solid var(--color-hover);
+}
+
+.ver {
+    margin: 3vw auto;
+    cursor: pointer;
+    p{ 
+        color: var(--color-logo);
+        font-size: 1.3rem;
+        font-family: var(--font-texto-comun);
+        text-align: center;
+        margin-top: 1vw;
+    }
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    gap: 2.5vw;
+    justify-content: center;
+    margin: 3vw auto;
+
+    button:hover {
+        transform: scale(1.05);
+    }
+   
+}
+
+
+
+.botones .principales {
+    height: 5vw;
+    color: var(--color-texto-boton);
+    background: var(--color-principal);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+
+.botones .secundario {
+    height: 5vw;
+    background: transparent;
+    border: 3px solid var(--color-principal);
+    border-radius: 10px;
+   
+    
+    a{
+    color: var(--color-texto-comun);
+    font-family: var(--font-texto-comun);
+    font-size: 1.2rem;
+    }
+}
+
+@media(max-width: 700px){
+
+    .principal .tarjeta {
+        width: 91%;
+        margin: 4vw auto;
+
+        h1 {
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-size: 0.7rem;
+            margin-left: 2%;
+        }
+
+        img {
+            width: 6vw;
+            height: 6vw;
+        }
+    }
+
+    .botones {
+        width: 91%;
+        
+        button {
+            height: 11vw;
+            
+        }
+    }
+}

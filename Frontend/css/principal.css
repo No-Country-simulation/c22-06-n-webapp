@@ -5,258 +5,6 @@ body {
     width: 100%;
 }
 
-header {
-    width: 100%;
-    height: 6vw;
-    background: var(--color-background-oscuro);
-    padding: 0.5vw 4vw;
-}
-
-.container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-  
-}
-
-.usuario {
-    width: 9vw;
-    height: 3.5vw;
-    background-color: var(--color-logo);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    padding-left: 1vw;
-    gap: 1vw;
-    
-  
-    img {
-        width: 3.3vw;
-        height: 3.3vw;
-        text-align: center;
-        border: 2px solid gray;
-        border-radius: 100%;
-    }
-
-
-}
-
-.usuario button {
-    width: 4vw;
-    height: 3.5vw;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    
-
-    i {
-        color: var(--color-texto-boton);
-        font-size: 3vw;
-        text-align: center;
-    }
-}
-
-
-.logo {
-   width: 5vw;
-   height: 5vw;
-          
-}
-
-.iconos {
-    font-size: 2.6vw;
-    color: var(--color-logo);
-    display: flex;
-    align-items: center;
-    gap: 4vw;
-    
-}   
-
-.iconos button {
-    width: 2.8vw;
-    height: 2.8vw;
-    border: none;
-    background-color: var(--color-logo);
-
-    i{
-        font-size: 2.8vw;
-        color: var(--color-hover)
-    }
-
-}
-
-/*desplegable menu*/
-
-aside {
-    width: 28%;
-    height: auto;
-    background: var(--color-background);
-    border: 1px solid var(--color-hover);
-    box-shadow: var(--box-shadow);
-    display: none;
-        
-}
-
-
-.menu {
- position: absolute;
- right: 0;
- padding: 2vw;
-    
-    button {
-        position: absolute;
-        right: 15px;
-        text-align: right;
-        align-items: first baseline;
-        margin-right: 1vw;
-        border-radius: 100%;
-        width: 2.2vw;
-        height: 2.2vw;
-        text-align: center;
-        border: none;
-        cursor: pointer;
-    
-       img {
-        width: 2.2vw;
-        height: 2.2vw;
-        text-align: center;
-        margin-right: 2vw;
-       }
-    
-    
-    }
-
-}
-
-.menu ul {
-    width: 100%;
-    margin: 3vw 0;
-
-
-    
-    img {
-        width: 4vw;
-        height: 4vw;
-        
-    }
-
-
-    a {
-        color: var(--color-texto-comun);
-        font-size: 2vw;
-        font-family: var(--font-titulos);
-        text-align: left;
-    }
-}
-
-.menu ul li {
-       
-    display: flex;
-    align-items: center;
-    text-align: left;
-    gap: 15px;
- 
-    padding: 5px;
-   
-}
-
-.menu ul li:hover {
-    background-color: var(--color-hover);
-    cursor: pointer;
-    width: 120%;
-}
-
-.menu .borde {
-    border-bottom: 1px solid var(--color-hover);
-}
-
-/*desplegable perfil*/
-
-.perfil-usuario {
-    padding: 1.5vw 0;
-}
-   
-.perfil-usuario .tarjeta {
-    width: 85%;
-    height: auto;
-    background: var(--color-tarjeta);
-    border: 1px solid var(--color-hover);
-    box-shadow: var(--box-shadow);
-    border-radius: 10px;
-    padding: 2vw;
-    margin: 2vw;
-}
-
-.perfil {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    img {
-        width: 4vw;
-        height: 4vw;
-    }
-
-    h3 {
-        font-family: var(--font-titulos);
-        font-size: 2vw;
-        color: var(--color-background-oscuro);
-    }
-
-    button {
-        width: 3vw;
-        height: 3vw;
-        cursor: pointer;
-        border: none;
-    }
-
-    i {
-        font-size: 3vw;
-    }
-
-}
-
-.encabezado-titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5vw;
-    margin-left: 7vw;
-    font-size: 2vw;
-
-    img {
-        width: 3vw;
-        height: 3vw;
-    }
-
-    button {
-        border: none;
-        cursor: pointer;
-    }
-}
-
-.perfil-usuario .encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: var(--font-titulos);
-    color: var(--color-texto-comun);
-    margin-bottom: 1.5vw;
-
-    img {
-        width: 3vw;
-        height: 2vw;
-        text-align: center;
-    }
-
-    button {
-        border: none;
-        cursor: pointer;
-    }
-}
 
 /*cuerpo principal*/
 
@@ -428,6 +176,11 @@ aside {
         font-size: 1.3rem;
         font-family: var(--font-titulos);
     }
+
+    img {
+        width: 8vw;
+        height: 7vw;
+    }
 }
 #monto-verde {
     color: var(--color-logo);
@@ -440,7 +193,7 @@ aside {
 .container-movimientos {
     display: block;
 
-}
+  }
 
 .individual-movimientos {
     display: flex;
@@ -469,147 +222,92 @@ aside {
     text-align: left;
 }
 
- .tarjeta-contacto {
-   
-   margin: 2vw auto;
-   text-align: center;
-   
-    img {
-        width: 65%;
-        height: 45vw;
-        margin-bottom: 3vw;
-    }
+ .contacto {
+    width: 65%;
+    height: auto;
+    margin: 2.5vw auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    background: linear-gradient(180deg, #5CA8AD 0%, #566173 100%);
+    border: 1px solid var(--color-hover);
+    box-sizing: border-box;
+    padding-top: 2vw;
+ }
 
-    
-    a{
+.container-contacto {
+
+    h2 {
         color: var(--color-texto-boton);
-        font-size: 1.3rem;
         font-family: var(--font-titulos);
-        position: absolute;
-        left: 40%;
-        top: 174vw;
-        cursor: pointer;
-       
+        font-size: 1.5rem;
+        margin: 1vw auto;
+        text-align: center;
+
     }
 
-    a:hover {
-        transform: scale(1.05);
+    a {
+        text-align: center;
+        
+    }
+
+   
+}
+
+.centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
+
+    img {
+        width: 50%;
+        height: 33vw;
     }
 }
 
+.botones {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 
+  img {
+    width: 3vw;
+    height: 3vw;
+    text-align: center;
+  
+    
+  }
 
+  button {
+    width: 5vw;
+    height: 5vw;
+    background: var(--color-hover);
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin-top: 4vw;
+  }
 
+  button:hover {
+    transform: scale(1.05);
+  }
 
+}
 
-
-
+.preguntas {
+    color: var(--color-texto-boton);
+    font-family: var(--font-titulos);
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 2% 35%;
+    
+}   
 
 
 @media(max-width: 700px) {
     
-    header {
-        height: 8vw;
-               
-    }
-
-    .usuario {
-        width: 12vw;
-        height: 5vw;
-        padding: auto 0;
-
-        i {
-            font-size: 5vw;
-        }
-
-        img {
-            width: 5vw;
-            height: 5vw;
-        }
-    }
-
-    .logo {
-         width: 6vw;
-         height: 6vw;
-    }
-
-    .iconos {
-
-        i {
-            font-size: 4vw;
-        }
-
-        button {
-            width: 5vw;
-            height: 4vw;
-        }
-    }
-
-    aside {
-        width: 50%;
-
-        img {
-            width: 6vw;
-        }
-
-        a {
-            font-size: 4vw;
-        }
-
-      
-    }
-
-    .menu {
-
-        button {
-            width: 5vw;
-            height: 5vw;
-        }
-
-        img {
-            width: 4vw;
-            height: 4vw;
-        }
-    }
-
-    .menu ul li a {
-        font-size: 4vw;
-
-       
-    }
-
-    .menu ul li img {
-        width: 7vw;
-        height: 7vw;
-    }
-    
-    .perfil-usuario {
-       
-        h3 {
-            font-size: 3vw;
-        }
-
-        p {
-            font-size: 2.5vw;
-        }
-
-    }
-
-   .perfil-usuario .encabezado {
-
-        button {
-            width: 5vw;
-            height: 5vw;
-            background: transparent;
-
-        }
-
-        img {
-            width: 5vw;
-            height: 4vw;
-        }
-    }
-
     .principal .tarjeta {
         width: 91%;
         
@@ -632,6 +330,30 @@ aside {
             font-size: 0.7rem;
             margin-top: 2vw;
         }
+    }
+
+  
+    .contacto {
+        width: 91%;
+    }
+
+    .centro {
+        gap: 16vw;
+                  
+    }
+
+    .botones {
+
+        button {
+        width: 8vw;
+        height: 8vw;
+        }
+
+        img {
+            width: 5vw;
+            height: 5vw;
+        }
+
     }
 
     .importe img {
@@ -681,30 +403,13 @@ aside {
             height: 7vw;
         }
 
-        .tarjeta-contacto {
-            margin-top: 4vw;
-           
-            img {
-                width: 91%;
-                height: 45vw;
-            }
+    }    
+              
 
-            a {
-                top: 250vw;
-            }
-        }
-
-        footer {
-            height: auto;
-            padding-bottom: 15vw ;
-
-                  
-        }
-    }
+}
 
 
 
 
 
    
-}
