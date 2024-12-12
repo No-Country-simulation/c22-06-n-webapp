@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BankAccountTypeDto {
+    private Integer id;
     private String name;
     private String code;
     private CurrencyDto currency;

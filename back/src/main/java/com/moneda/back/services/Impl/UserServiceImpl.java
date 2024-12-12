@@ -7,7 +7,6 @@ import com.moneda.back.entities.User;
 import com.moneda.back.mappers.UserMapper;
 import com.moneda.back.repositories.BankAccountRepository;
 import com.moneda.back.repositories.BankAccountTypeRepository;
-import com.moneda.back.repositories.UserBankAccountRepository;
 import com.moneda.back.repositories.UserRepository;
 import com.moneda.back.services.UserService;
 import com.moneda.back.utils.BankAccountGenerator;
@@ -27,7 +26,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final BankAccountRepository bankAccountRepository;
-    private final UserBankAccountRepository userBankAccountRepository;
     private final BankAccountTypeRepository bankAccountTypeRepository;
     @Override
     public ResponseEntity<Map<String, Object>> listUsers() {
@@ -69,9 +67,10 @@ public class UserServiceImpl implements UserService {
             user.setCuil(createUserDto.getCuil());
             user.setDni(createUserDto.getDni());
             user.setEmail(createUserDto.getEmail());
+            user.setPhone(createUserDto.getPhone());
             user.setPassword(createUserDto.getPassword());
             user.setIsActive(true);
-
+            user.setCreatedAt(new Date());
             BankAccountType bankAccountType = bankAccountTypeRepository.findById(createUserDto.getBankAccountType_id())
                     .orElseThrow(() -> new RuntimeException("Tipo de cuenta bancaria no encontrado"));
 
@@ -82,7 +81,8 @@ public class UserServiceImpl implements UserService {
             bankAccount.setBalance(0.0);
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);
-
+            bankAccount.setIsActive(true);
+            bankAccount.setCreatedAt(new Date());
             user.getBankAccounts().add(bankAccount);
 
             userRepository.save(user);

@@ -1,5 +1,4 @@
 package com.moneda.back.services.Impl;
-
 import com.moneda.back.dto.BankAccountDto;
 import com.moneda.back.dto.CreateBankAccountDto;
 import com.moneda.back.dto.UpdateBankAccountDto;
@@ -60,31 +59,30 @@ public class BankAccountServiceImpl implements BankAccountService {
             return ResponseEntity.badRequest().body(response);
         }
         try{
-            if (bankAccountRepository.existsByBankAccount(createBankAccount.getBankAccount())) {
-                response.put("message", "El número de cuenta ya existe");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-            }
-
-            if (bankAccountRepository.existsByAlias(createBankAccount.getAlias())) {
-                response.put("message", "El alias ya existe");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-            }
             User user = userRepository.findById(createBankAccount.getUser_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
             BankAccountType bankAccountType = bankAccountTypeRepository.findById(createBankAccount.getBankAccountType_id()).orElseThrow(()-> new RuntimeException("Tipo Cuenta Banco no encontrado"));
             String accountNumber = BankAccountGenerator.generateAccountNumber();
             String cvu = BankAccountGenerator.generateCvu(accountNumber, "123", "4567");
             String alias = BankAccountGenerator.generateAlias();
             BankAccount bankAccount = new BankAccount();
-            bankAccount.setBankAccount(createBankAccount.getBankAccount());
+            bankAccount.setBankAccount(accountNumber);
+            if (bankAccountRepository.existsByBankAccount(accountNumber)) {
+                response.put("message", "El número de cuenta ya existe");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            }
             bankAccount.setCvu(cvu);
             bankAccount.setBalance(0.0);
             bankAccount.setAlias(alias);
+            if (bankAccountRepository.existsByAlias(alias)) {
+                response.put("message", "El alias ya existe");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            }
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);
             bankAccount.setIsActive(true);
             bankAccount.setCreatedAt(new Date());
             bankAccountRepository.save(bankAccount);
-
+            user.getBankAccounts().add(bankAccount);
             BankAccountDto bankAccountDto = bankAccountMapper.toBankAccountDto(bankAccount);
             response.put("message", "Se ha creado exitosamente");
             response.put("bankAccount", bankAccountDto);

@@ -1,11 +1,9 @@
 package com.moneda.back.dto;
-
 import lombok.Data;
 
 @Data
-public class CurrencyDto {
+public class TransactionTypeDto {
     private Integer id;
-    private String name;
     private String code;
-    private String symbol;
+    private String name;
 }
