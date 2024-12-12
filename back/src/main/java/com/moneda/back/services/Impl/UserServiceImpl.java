@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -78,7 +79,7 @@ public class UserServiceImpl implements UserService {
             bankAccount.setBankAccount(BankAccountGenerator.generateAccountNumber());
             bankAccount.setCvu(BankAccountGenerator.generateCvu(bankAccount.getBankAccount(), "123", "4567"));
             bankAccount.setAlias(BankAccountGenerator.generateAlias());
-            bankAccount.setBalance(0.0);
+            bankAccount.setBalance(BigDecimal.ZERO);
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);
             bankAccount.setIsActive(true);

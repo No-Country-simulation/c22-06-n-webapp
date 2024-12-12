@@ -5,13 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class BankAccountDto {
     private String bankAccount;
     private String cvu;
-    private Double balance;
+    private BigDecimal balance;
     private String alias;
     private Integer user_id;
     private BankAccountTypeDto bankAccountType;

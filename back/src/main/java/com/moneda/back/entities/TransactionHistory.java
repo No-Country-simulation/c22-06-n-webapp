@@ -3,6 +3,7 @@ package com.moneda.back.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Table(name = "historial_transaccion")
@@ -18,7 +19,7 @@ public class TransactionHistory {
     @Column(name = "cvu_destino", nullable = false)
     private String transactionType;
     @Column(name = "monto", nullable = false)
-    private Double amount;
+    private BigDecimal amount;
     @Column(name = "detalle", nullable = false)
     private String details;
     @Column(name = "fecha_transaccion", nullable = false)

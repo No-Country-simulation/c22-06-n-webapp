@@ -1,8 +1,6 @@
 package com.moneda.back.services.Impl;
-import com.moneda.back.dto.BankAccountDto;
-import com.moneda.back.dto.CurrencyDto;
+import com.moneda.back.dto.CreateTransactionTypeDto;
 import com.moneda.back.dto.TransactionTypeDto;
-import com.moneda.back.entities.Currency;
 import com.moneda.back.entities.TransactionType;
 import com.moneda.back.mappers.TransactionTypeMapper;
 import com.moneda.back.repositories.TransactionTypeRepository;
@@ -12,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -39,7 +36,7 @@ public class TransactionTypeServiceImpl implements TransactionTypeService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> saveTransactionType(TransactionTypeDto createTransactionTypeDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> saveTransactionType(CreateTransactionTypeDto createTransactionTypeDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()

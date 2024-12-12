@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -71,7 +72,7 @@ public class BankAccountServiceImpl implements BankAccountService {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
             }
             bankAccount.setCvu(cvu);
-            bankAccount.setBalance(0.0);
+            bankAccount.setBalance(BigDecimal.ZERO);
             bankAccount.setAlias(alias);
             if (bankAccountRepository.existsByAlias(alias)) {
                 response.put("message", "El alias ya existe");
