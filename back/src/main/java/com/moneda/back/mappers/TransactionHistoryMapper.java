@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 @Component
 public class TransactionHistoryMapper {
-    public TransactionHistoryDto toCurrencyDto(TransactionHistory transactionHistory) {
+    public TransactionHistoryDto toTransactionHistoryDto(TransactionHistory transactionHistory) {
         TransactionHistoryDto dto = new TransactionHistoryDto();
         dto.setCvuUser(transactionHistory.getCvuUser());
         dto.setTransactionType(transactionHistory.getTransactionType());

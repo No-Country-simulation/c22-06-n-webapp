@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TransactionTypeMapper {
-    public TransactionTypeDto toCurrencyDto(TransactionType transactionType) {
+    public TransactionTypeDto toTransactionTypeDto(TransactionType transactionType) {
         TransactionTypeDto dto = new TransactionTypeDto();
         dto.setId(transactionType.getId());
         dto.setName(transactionType.getName());

@@ -2,14 +2,13 @@ package com.moneda.back.mappers;
 
 import com.moneda.back.dto.TransactionDto;
 import com.moneda.back.entities.Transaction;
-import com.moneda.back.entities.TransactionType;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
 public class TransactionMapper {
-    public TransactionDto toCurrencyDto(Transaction transaction) {
+    public TransactionDto toTransactionDto(Transaction transaction) {
         TransactionDto dto = new TransactionDto();
         dto.setCvuSender(transaction.getCvuSender());
         dto.setCvuReceiver(transaction.getCvuReceiver());
