@@ -16,7 +16,7 @@ public class BankAccountType {
     private String code;
     @Column(name = "nombre", length = 250, nullable = false)
     private String name;
-    @Column(name = "creado_en")
+    @Column(name = "creado_en", nullable = false)
     private Date createdAt;
     @Column(name = "ultima_actualizacion")
     private Date lastModified;

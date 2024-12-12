@@ -20,7 +20,7 @@ public class Currency {
     private String code;
     @Column(name = "simbolo", nullable = false)
     private String symbol;
-    @Column(name = "creado_en")
+    @Column(name = "creado_en", nullable = false)
     private Date createdAt;
     @Column(name = "ultima_actualizacion")
     private Date lastModified;

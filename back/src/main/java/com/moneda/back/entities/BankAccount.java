@@ -22,7 +22,7 @@ public class BankAccount {
     private Double balance;
     @Column(name = "alias", nullable = false, columnDefinition = "CHAR(4)")
     private String alias;
-    @Column(name = "creado_en")
+    @Column(name = "creado_en", nullable = false)
     private Date createdAt;
     @Column(name = "ultima_actualizacion")
     private Date lastModified;
