@@ -20,13 +20,12 @@
     />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../css/ingresarDinero.css" />
-    
-    <title>Ingresar Dinero</title>
-</head>
+    <link rel="stylesheet" href="../css/retirar.css" />
 
+    <title>Retirar Efectivo</title>
+</head>
 <body>
-    <header id="header-principal">
+     <header id="header-principal">
         <div class="container-header">
 
             <div class="usuario">
@@ -51,9 +50,9 @@
 
         <button class="close"><img src="../assets/close.png"></button>  
         <ul>
-            <li><img src="../assets/ingresar.png"><a href="./IngresarDinero.html">Ingresar</a></li>
+            <li><img src="../assets/ingresar.png"><a href="IngresarDinero.html">Ingresar</a></li>
             <li><img src="../assets/transferir.png"><a href="#">Transferir</a></li>
-            <li class="borde"><img src="../assets/retirar.png"><a href="#">Retirar</a></li>
+            <li class="borde"><img src="../assets/retirar.png"><a href="./retirarEfectivo.html">Retirar</a></li>
             <li><img src="../assets/servicios.png"><a href="#">Pagar servicios</a></li>
             <li class="borde" ><img src="../assets/tarjeta.png"><a href="#">Tarjetas</a></li>
             <li><img src="../assets/prestamos.png"><a href="#">Préstamos</a></li>
@@ -107,62 +106,47 @@
     </aside>
 
     <section class="principal">
-    
-        <h1 class="titulo">Ingresar Dinero</h1>
-     
-        <div class="tarjeta importe">
-            <p>Ingresa un monto</p>
-            <h3 id="monto">$30000</h3>
-        </div> 
+        <h1>Retirar Efectivo</h1>
 
-        <h2 class="subtitulos">Cuentas vinculadas</h2>
+        <div class="tarjeta monto">
+            <h3>Ingrese un monto</h3>
+            <h2 id="importe"> $0</h2>
+            <p id="disponible"> Disponible $30000</p>
 
-        <div class="tarjeta cuentas">
-            <div class="cuentas-individuales">
+        </div>
+
+        <div class="boton">
+            <button>Continuar</button>
+
+        </div>
+        
+
+        <div class="tarjeta resultado">
+
+            <div class="codigo">
                 <div class="encabezado">
-                    <div>
-                        <input type="checkbox">
-                        <h3 class="banco">Banco Galicia</h3>
-                    </div>
-                    <button><img src="../assets/Delete.png"></button>
+                    <h3>Copia el código de retiro</h3>
+                    <button><img src="../assets/Copy.png"></button>
                 </div>
-                <p>Cuenta ahorro</p>
-                <h3 id="nun-cuenta">CBU:0000283417659821345073</h3>
+                <h3>04389700143278</h3>
             </div>
-            <div class="cuentas-individuales">
+            
+            <div id="mostrar">
                 <div class="encabezado">
-                    <div>
-                        <input type="checkbox">
-                        <h3 class="banco">Brubank</h3>
-                    </div>    
-                    <button><img src="../assets/Delete.png"></button>
+                    <h3>Descarga tu comprobante</h3>
+                    <button><img src="../assets/descargar.png"></button>
                 </div>
-                <p>Cuenta ahorro</p>
-                <h3 id="nun-cuenta">CBU:0000283417659821345073</h3>
-            </div> 
-            <div class="ver">
-                <p>Ver todo ></p>
+
+                <p>Introduce en el cajero el código y ¡listo!</p>
+
+                <button><a href="./principal.html">Finalizar</a></button>
             </div>
-        </div>
 
-        <div class="tarjeta agregar-cuenta">
-            <div class="encabezado">
-                <div>
-                    <img src="../assets/plus-verde.png">
-                    <h3>Agregar cuenta</h3>
-                </div>    
-                <button><i class='bx bx-chevron-right'></i></button>
-            </div>
         </div>
-
-        <div class="botones">
-            <button class="principales">Aceptar</button>
-            <button class="secundario"><a href="./principal.html">Cancelar</a></button>
-        </div>
-
 
     </section>
 
     <script src="../js/main.js" type="module"></script>
+
 </body>
 </html>

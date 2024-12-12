@@ -1,0 +1,125 @@
+@import url(../css/stylesGlobales.css);
+
+.principal {
+    background: var(--color-background);
+    padding: 3vw 0;
+    width: 100%;
+    
+    h1 {
+        color: var(--color-logo);
+        font-size: 1.7rem;
+        font-family: var(--font-titulos);
+        text-align: center;
+        padding: 3vw auto;
+        
+    
+    }
+
+    h2 {
+        color: var(--color-logo);
+        font-size: 1.7rem;
+        text-align: center;
+        margin: 1.5vw 0;
+    
+     }
+
+     p{
+        color: var(--color-texto-gris);
+        font-family: var(--font-texto-comun);
+        font-size: 1rem;
+        text-align: center;
+        margin: 1.5vw 0;
+     }
+
+     h3 {
+        color: var(--color-texto-gris);
+        font-family: var(--font-texto-comun);
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 1.5vw 0;
+     }
+
+    button {
+        width: 65%;
+        height: 4vw;
+        border: none;
+        border-radius: 10px;
+        background: var(--color-principal);
+        color: var(--color-texto-boton);
+        font-family: var(--font-titulos);
+        font-size: 1.2rem;
+        margin: 2vw 17.5%;
+        text-align: center;
+    }
+
+    a {
+        color: var(--color-texto-boton);
+        font-family: var(--font-titulos);
+        font-size: 1.2rem;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+        
+    }
+
+
+    
+}
+
+.tarjeta {
+    width: 65%;
+    height: auto;
+    margin: 3vw auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-hover);
+    padding: 2vw;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    h3 {
+       margin: 1vw 2vw;
+    }
+
+    button {
+        width: 4vw;
+        height: 3vw;
+        background: transparent;
+        text-align: center;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+    
+}
+
+.resultado p {
+  
+    color: var(--color-logo);
+    font-size: 1.4rem;
+    margin-top: 3vw 0;
+    
+}
+
+.codigo {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-hover);
+  
+
+    h3 {
+        text-align: left;
+        color: var(--font-texto-comun);
+        margin: 1vw 2vw;
+    }
+}
