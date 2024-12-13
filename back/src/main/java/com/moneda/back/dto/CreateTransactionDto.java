@@ -9,5 +9,4 @@ public class CreateTransactionDto {
     private String cvuReceiver;
     private BigDecimal amount;
     private String message;
-    private Integer transactionType_Id;
 }
