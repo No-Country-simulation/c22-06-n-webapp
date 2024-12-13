@@ -132,13 +132,13 @@ aside {
 } 
 
 .menu{
-
+ 
  position: absolute;
  z-index: 200;
  right: 0;
  padding: 2vw;
  top: 6vw;
- transition: ease 2s;
+
 
     
     button {
