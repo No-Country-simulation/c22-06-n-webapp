@@ -8,7 +8,7 @@ body {
 
 .logo img{
     position: absolute;
-    top: 6vw;
+    top: 9vw;
     left: 44vw;
     text-align: center;
     min-width: 6em;
@@ -106,14 +106,25 @@ body {
     background: var(--color-principal);
     color: #eeeeee;
     border: none;
+    cursor: pointer;
+
+    a {
+        font-family: var(--color-texto-comun);
+        padding: 1.3vw;
+        font-size: 2vw;
+        color: var(--color-botton);
+    }
+
 }
 
 .secundario {
     border: 2px solid var(--color-logo);
     
     a {
-        color: var(--color-titulos)
-        
+        color: var(--color-texto-comun);
+        padding: 1.3vw;
+        font-size: 2vw;
+       
     }
 }
 
@@ -126,6 +137,7 @@ body {
    
     a {
     color: var(--color-logo);
+    
 
     }
 
@@ -136,6 +148,41 @@ body {
     color: var(--color-logo);
     text-wrap: nowrap;
     margin: 3vw 0 0 -5vw;
+}
+
+
+@media(max-width: 700px){
+
+    .logo img{
+       width: 7vw;
+       height: 7vw;
+       left: 30vw;
+       top: 20vw;
+    }
+
+    .container-formulario {
+        width: 90%;
+        text-align: center;
+    
+    }
+
+    .form {
+        width: 75%;
+
+      
+    }
+
+
+    .form.tarjeta {
+        height: 70vw;
+        width: 100%;
+
+        input {
+            width: 13px;
+            height: 13px;
+        }
+    }
+
 }
 
 
