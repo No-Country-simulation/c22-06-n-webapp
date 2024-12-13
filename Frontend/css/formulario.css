@@ -249,6 +249,16 @@ body {
     border-radius: 10px;
 }
 
+.mensaje-error.activo {
+    color: red;
+    font-size: 0.9em;
+}
+  
+.input-error {
+    border: 1px solid red;
+}
+  
+
 
 .mensaje-exitoso {
     width: 27vw;
