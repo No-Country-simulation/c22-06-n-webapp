@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 public class CurrencyMapper {
     public CurrencyDto toCurrencyDto(Currency currency) {
         CurrencyDto dto = new CurrencyDto();
+        dto.setId(currency.getId());
         dto.setName(currency.getName());
         dto.setCode(currency.getCode());
+        dto.setSymbol(currency.getSymbol());
         return dto;
     }
 }

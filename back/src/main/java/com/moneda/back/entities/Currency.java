@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Table(name = "moneda")
 @Entity
 @Data
@@ -16,6 +18,12 @@ public class Currency {
     private String name;
     @Column(name = "codigo", length = 100, nullable = false)
     private String code;
+    @Column(name = "simbolo", nullable = false)
+    private String symbol;
+    @Column(name = "creado_en", nullable = false)
+    private Date createdAt;
+    @Column(name = "ultima_actualizacion")
+    private Date lastModified;
     @Column(name = "activo")
     private Boolean isActive;
 }

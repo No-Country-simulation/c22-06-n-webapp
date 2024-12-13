@@ -1,6 +1,8 @@
 package com.moneda.back.services.Impl;
 
+import com.moneda.back.dto.CreateCurrencyDto;
 import com.moneda.back.dto.CurrencyDto;
+import com.moneda.back.dto.UpdateCurrencyDto;
 import com.moneda.back.entities.Currency;
 import com.moneda.back.mappers.CurrencyMapper;
 import com.moneda.back.repositories.CurrencyRepository;
@@ -37,7 +39,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> saveCurrency(CurrencyDto createCurrencyDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> saveCurrency(CreateCurrencyDto createCurrencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -51,12 +53,15 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currency = new Currency();
             currency.setName(createCurrencyDto.getName());
             currency.setCode(createCurrencyDto.getCode());
+            currency.setSymbol(createCurrencyDto.getSymbol());
+            currency.setCreatedAt(new Date());
             currency.setIsActive(true); //por defecto estará activo al crear una moneda
             currencyRepository.save(currency);
 
             CurrencyDto currencyDto = new CurrencyDto();
             currencyDto.setCode(currency.getCode());
             currencyDto.setName(currency.getName());
+            currencyDto.setSymbol(currency.getSymbol());
             response.put("message", "Se ha creado exitosamente");
             response.put("currency", currencyDto);
             return ResponseEntity.ok(response);
@@ -68,7 +73,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, CurrencyDto currencyDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, UpdateCurrencyDto currencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -88,11 +93,14 @@ public class CurrencyServiceImpl implements CurrencyService {
             Currency currencyEntity = existingCurrency.get();
             currencyEntity.setName(currencyDto.getName());
             currencyEntity.setCode(currencyDto.getCode());
+            currencyEntity.setSymbol(currencyDto.getSymbol());
+            currencyEntity.setLastModified(new Date());
             Currency updatedCurrency = currencyRepository.save(currencyEntity);
 
             CurrencyDto dto = new CurrencyDto();
             dto.setCode(currencyEntity.getCode());
             dto.setName(currencyEntity.getName());
+            dto.setSymbol(currencyEntity.getSymbol());
             response.put("message", "Moneda actualizada correctamente");
             response.put("currency", dto);
             return ResponseEntity.ok(response);

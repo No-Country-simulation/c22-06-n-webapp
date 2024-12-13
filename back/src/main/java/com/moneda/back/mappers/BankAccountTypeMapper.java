@@ -1,16 +1,21 @@
 package com.moneda.back.mappers;
 
 import com.moneda.back.dto.BankAccountTypeDto;
+import com.moneda.back.dto.CurrencyDto;
 import com.moneda.back.entities.BankAccountType;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class BankAccountTypeMapper {
-    public BankAccountTypeDto toBankAccountTypeDtoDto(BankAccountType bankAccountType) {
+    private final CurrencyMapper currencyMapper;
+    public BankAccountTypeDto toBankAccountTypeDto(BankAccountType bankAccountType) {
         BankAccountTypeDto dto = new BankAccountTypeDto();
+        dto.setId(bankAccountType.getId());
         dto.setName(bankAccountType.getName());
         dto.setCode(bankAccountType.getCode());
-        dto.setBenefits(bankAccountType.getBenefits());
+        dto.setCurrency(currencyMapper.toCurrencyDto(bankAccountType.getCurrency()));
         return dto;
     }
 }
