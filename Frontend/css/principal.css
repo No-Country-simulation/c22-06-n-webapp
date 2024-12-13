@@ -117,18 +117,14 @@ body {
         height: 17vw;
     }
 }
-
 .seguro, .prestamos {
     padding: 2vw;
     text-align: left;
-
     p {
         color: var(--color-texto-comun);
         margin-left: 1vw;
     }
 }
-
-
 .container-seguro, .container-prestamos {
     display: flex;
     align-items: center;
@@ -159,7 +155,6 @@ body {
     }
 
 }
-
 .movimientos {
     padding: 4vw;
 
@@ -173,7 +168,6 @@ body {
     }
 
 }
-
 .container-cabecera {
     display: flex;
     align-items: center;
@@ -189,7 +183,6 @@ body {
         height: 4vw;
     }
 }
-
 #monto-verde {
     color: var(--color-logo);
 }
