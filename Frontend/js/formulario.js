@@ -12,6 +12,7 @@ formulario.addEventListener("submit", (e) => {
   e.preventDefault();
   const listaRespuestas = {
     nombre: e.target.elements["nombre"].value,
+    last_name_p: e.target.elements[""]
     email: e.target.elements["email"].value,
     identificacion: e.target.elements["identificacion"].value,
     cuil: e.target.elements["cuil"].value,

@@ -66,6 +66,35 @@
           </fieldset>
 
           <fieldset class="formulario__campo">
+
+            <label class="campo__etiqueta" for="apellido-p">Apellido Paterno</label>
+            <input
+              name="lasts_name_p"
+              id="apellido-p"
+              class="campo__completo"
+              type="text"
+              minlength="3"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+
+          <fieldset class="formulario__campo">
+
+            <label class="campo__etiqueta" for="apellido-m">Apellido Materno</label>
+            <input
+              name="lasts_name_m"
+              id="apellido-m"
+              class="campo__completo"
+              type="text"
+              minlength="3"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset>
+
+
+          <fieldset class="formulario__campo">
             <label class="campo__etiqueta" for="email">E-mail</label>
             <input
               name="email"
@@ -77,13 +106,14 @@
             />
             <span class="mensaje-error"></span>
           </fieldset>
+         
           <fieldset class="formulario__campo">
-            <label class="campo__etiqueta" for="identificacion"
+            <label class="campo__etiqueta" for="dni"
               >DNI</label
             >
             <input
-              name="identificacion"
-              id="identificacion"
+              name="dni"
+              id="dni"
               class="campo__completo campo__completo--menor"
               type="text"
               minlength="8"
@@ -91,6 +121,7 @@
             />
             <span class="mensaje-error"></span>
           </fieldset>
+         
           <fieldset class="formulario__campo">
             <label class="campo__etiqueta" for="cuil"
               >CUIL(Sin guiones)</label>
@@ -107,21 +138,39 @@
             />
             <span class="mensaje-error"></span>
           </fieldset>
+         
           <fieldset class="formulario__campo">
             <label class="campo__etiqueta" for="fecha_nacimiento">
               Fecha de nacimiento
             </label>
             <input
-              name="fecha_nacimiento"
+              name="birthDate"
               id="fecha_nacimiento"
               class="campo__completo campo__completo--menor"
               type="date"
               required
             />
-
+            
             <span class="mensaje-error"></span>
           </fieldset>
-          
+
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="telefono">
+              Teléfono
+            </label>
+            <input
+              name="phone"
+              id="telefono"
+              class="campo__completo campo__completo--menor"
+              type="text"
+              required
+            />
+            
+            <span class="mensaje-error"></span>
+          </fieldset>
+
+                      
+                    
           <fieldset class="formulario__campo">
             <label class="campo__etiqueta" for="password">
               Crear contraseña
@@ -134,8 +183,23 @@
               required
             />
             <span class="mensaje-error"></span>
-          </fieldset>  
-          
+          </fieldset> 
+
+          <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="password">
+              Crear contraseña
+            </label>
+            <input
+              name="password"
+              id="password"
+              class="campo__completo campo__completo--menor"
+              type="password"
+              required
+            />
+            <span class="mensaje-error"></span>
+          </fieldset> 
+
+                    
           <fieldset class="formulario__terminos">
             <input
               name="terminos"
