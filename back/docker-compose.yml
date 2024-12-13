@@ -1,15 +1,14 @@
-version: '3.8'
-
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8081"
+      - "8080:8080"
     environment:
       SPRING_APPLICATION_NAME: back
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:6543/postgres?user=postgres.uaejumcmdpdyhvecjles&password=UZQvKtQseNYc9Tvx
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: UZQvKtQseNYc9Tvx
+      SPRING_DATASOURCE_URL: jdbc:mysql://moneda-mysql-2bd3f61a-shuertas981-f593.d.aivencloud.com:22433/defaultdb
+      SPRING_DATASOURCE_USERNAME: avnadmin
+      SPRING_DATASOURCE_PASSWORD: AVNS_DsiX_Q201RjM80bbrFm
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      LOGGING_LEVEL_ORG_HIBERNATE_TYPE: TRACE
