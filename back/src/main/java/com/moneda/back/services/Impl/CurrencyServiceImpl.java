@@ -1,6 +1,8 @@
 package com.moneda.back.services.Impl;
 
+import com.moneda.back.dto.CreateCurrencyDto;
 import com.moneda.back.dto.CurrencyDto;
+import com.moneda.back.dto.UpdateCurrencyDto;
 import com.moneda.back.entities.Currency;
 import com.moneda.back.mappers.CurrencyMapper;
 import com.moneda.back.repositories.CurrencyRepository;
@@ -37,7 +39,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> saveCurrency(CurrencyDto createCurrencyDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> saveCurrency(CreateCurrencyDto createCurrencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
@@ -71,7 +73,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, CurrencyDto currencyDto, BindingResult result) {
+    public ResponseEntity<Map<String, Object>> updateCurrency(Integer id, UpdateCurrencyDto currencyDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()

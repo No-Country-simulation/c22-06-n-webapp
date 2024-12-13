@@ -1,7 +1,9 @@
 package com.moneda.back.controllers;
 
 import com.moneda.back.dto.BankAccountDto;
+import com.moneda.back.dto.CreateCurrencyDto;
 import com.moneda.back.dto.CurrencyDto;
+import com.moneda.back.dto.UpdateCurrencyDto;
 import com.moneda.back.services.CurrencyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,12 +31,12 @@ public class CurrencyController {
     }
     @Operation(summary = "Registrar un Tipo Moneda")
     @PostMapping("/save")
-    public ResponseEntity<Map<String, Object>> saveCurrency(@RequestBody CurrencyDto createCurrencyDto, BindingResult result){
+    public ResponseEntity<Map<String, Object>> saveCurrency(@RequestBody CreateCurrencyDto createCurrencyDto, BindingResult result){
         return currencyService.saveCurrency(createCurrencyDto, result);
     }
     @Operation(summary = "Actualizar Tipo Moneda por Id")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Map<String, Object>> updateCurrency(@PathVariable Integer id, @RequestBody CurrencyDto currencyDto, BindingResult result){
+    public ResponseEntity<Map<String, Object>> updateCurrency(@PathVariable Integer id, @RequestBody UpdateCurrencyDto currencyDto, BindingResult result){
         return currencyService.updateCurrency(id, currencyDto, result);
     }
     @Operation(summary = "Eliminación Logica de Tipo Moneda por Id, cambia el estado active a false")

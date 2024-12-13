@@ -29,6 +29,9 @@ public class UserController {
         return userService.listUsers();
     }
     @Operation(summary = "Registra un nuevo Usuario")
+    @ApiResponse(responseCode = "200", description = "Usuario registrado",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = UserDto.class)))
     @PostMapping("/save")
     public ResponseEntity<Map<String, Object>> saveUser(@RequestBody CreateUserDto createUserDto, BindingResult result){
         return userService.saveUser(createUserDto, result);
