@@ -8,8 +8,8 @@ services:
       - "8080:8080"
     environment:
       SPRING_APPLICATION_NAME: back
-      SPRING_DATASOURCE_URL: jdbc:mysql://moneda-mysql-2bd3f61a-shuertas981-f593.d.aivencloud.com:22433/defaultdb?ssl-mode=REQUIRED
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db.uaejumcmdpdyhvecjles.supabase.co:5432/postgres?user=${USER}&password=${PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
-      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_USERNAME: ${USER}
+      SPRING_DATASOURCE_PASSWORD: ${PASSWORD}
