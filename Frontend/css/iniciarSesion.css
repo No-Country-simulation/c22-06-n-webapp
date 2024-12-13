@@ -1,0 +1,141 @@
+@import url(stylesGlobales.css);
+
+
+body {
+    width: 100%;
+    background: var(--color-backgound);
+}
+
+.logo img{
+    position: absolute;
+    top: 6vw;
+    left: 44vw;
+    text-align: center;
+    min-width: 6em;
+    min-height: 6em;
+    width: 9w;
+    height: 9vw;
+}
+
+.container-formulario {
+    width: 30%;
+    height: auto;
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin: 8em auto;
+    padding: 4em auto;
+    text-align: center;
+
+}
+
+.form {
+    width: 30%;
+    margin: 9em auto;
+    padding: 1vw auto;
+    font-family: var(--font-comun);
+}
+
+.form .tarjeta {
+    margin: 5vw 0 2vw -17vw;
+    height: 34vw;
+    width: 40vw;
+    border: 1px solid var(--color-hover);
+    box-shadow: var(--box-shadow);
+    background: var(--color-tarjetas);
+}
+
+.campo {
+    text-align: center;
+    margin-top: 7vw;
+}
+
+.campo input {
+    width: 80%;
+    height: 4em;
+    background: var(--color-hover);
+    margin: 1.5vw auto;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-texto-comun);
+    font-family: var(--font-comun);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.checkbox {
+    margin: 1vw 0 2vw -17vw;
+    text-align: left;
+    display: flex;
+    gap: 5px;
+    
+    input{
+        width: 15px;
+        height: 15px;
+        accent-color: var(--color-principal);
+    }
+    
+    p {
+        font-size: 1rem;
+        font-family: var(--font-comun);
+        color: var(--color-texto-comun);
+    }
+}
+
+.botones button{
+    display: block;
+    margin: 2em auto;
+    width: 40vw;
+    height: 4vw;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-comun);
+    font-size: 1rem;
+    margin: 0 0 2vw -17vw;
+    text-align: center;
+
+   
+}
+
+.botones button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.principal {
+    background: var(--color-principal);
+    color: #eeeeee;
+    border: none;
+}
+
+.secundario {
+    border: 2px solid var(--color-logo);
+    
+    a {
+        color: var(--color-titulos)
+        
+    }
+}
+
+
+
+.sin-cuenta  {
+    text-align: center;
+    margin: 2em 0;
+    text-wrap: nowrap;
+   
+    a {
+    color: var(--color-logo);
+
+    }
+
+}
+
+.sin-contraseña a {
+    text-align: center;
+    color: var(--color-logo);
+    text-wrap: nowrap;
+    margin: 3vw 0 0 -5vw;
+}
+
+

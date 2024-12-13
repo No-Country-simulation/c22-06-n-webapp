@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"  type="image/x-icon" href="../assets/logo-app.png"/>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../css/ingresarDinero.css" />
+    
+    <title>Ingresar Dinero</title>
+</head>
+
+<body>
+    <header id="header-principal">
+        <div class="container-header">
+
+            <div class="usuario">
+                <img src="../assets/avatar-user.png" alt="foto usuario">
+                <button><i class='bx bx-chevron-down'></i></button>
+            </div>
+            
+            <a href="./principal.html"><img class="logo" src="../assets/logo-app.png"></a>
+
+            <div class="iconos">
+                <i class='bx bxs-bell'></i>
+                <button><i class='bx bx-menu'></i></button>
+            </div>
+
+        </div>
+       
+    </header>
+
+    <main>
+
+    <aside class="menu">
+
+        <button class="close"><img src="../assets/close.png"></button>  
+        <ul>
+            <li><img src="../assets/ingresar.png"><a href="./IngresarDinero.html">Ingresar</a></li>
+            <li><img src="../assets/transferir.png"><a href="./transferencia/nueva-transferencia.html">Transferir</a></li>
+            <li class="borde"><img src="../assets/retirar.png"><a href="./retirarEfectivo.html">Retirar</a></li>
+            <li><img src="../assets/servicios.png"><a href="#">Pagar servicios</a></li>
+            <li class="borde" ><img src="../assets/tarjeta.png"><a href="#">Tarjetas</a></li>
+            <li><img src="../assets/prestamos.png"><a href="#">Préstamos</a></li>
+            <li><img src="../assets/seguros.png"><a href="#">Seguros</a></li>
+            <li class="borde"><img src="../assets/descuentos.png"><a href="#">Beneficios</a></li>
+            <li><img src="../assets/Help.png"><a href="#">Ayuda</a></li>
+            <li><img src="../assets/contactenos.png"><a href="#">Contacto</a></li>
+            <li class="borde"><img src="../assets/Settings.png"><a href="#">Configuración</a></li>
+            <li><img src="../assets/cerrar-sesion.png"><a href="#">Cerrar sesión</a></li>
+        </ul>
+    </aside>
+
+    <aside class="perfil-usuario">
+
+        <div class="encabezado-titulo">
+            <h3>Mi cuenta</h3>
+            <button class="close"><img src="../assets/close.png" alt="cerrar"></button>
+        </div>
+        <div class="tarjeta perfil">
+            <img src="../assets/avatar-user.png" alt="foto perfil">
+            <h3 id="nombre">Rosa Báez</h3>
+            <button><i class='bx bx-chevron-right'></i></button>
+
+        </div>
+        
+        <div class="tarjeta cvu">
+            <div class="encabezado">
+                <h3>CVU</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button>
+            </div>
+            <p id="cvu">0000234589345789072340</p>
+        </div>
+        
+        <div class="tarjeta alias">
+            <div class="encabezado">
+                <h3>Alias</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button> 
+            </div>
+            <p id="alias">TELA.FLOR.CINTA</p>
+        </div>
+
+        <div class="tarjeta cuenta">
+            <div class="encabezado">
+                <h3>Cuenta N°</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button> 
+            </div>
+            <p id="num-cuenta">1234567890</p>   
+            
+        </div>
+
+    </aside>
+
+    <section class="principal">
+    
+        <h1 class="titulo">Ingresar Dinero</h1>
+     
+        <div class="tarjeta importe">
+            <form name="ingresar-ingreso">
+            <p>Ingresa un monto</p>
+            <h3 id="monto">$30000</h3>
+        </div> 
+
+        <h2 class="subtitulos">Cuentas vinculadas</h2>
+
+        <div class="tarjeta cuentas">
+            <div class="cuentas-individuales">
+                <div class="encabezado">
+                    <div>
+                        <input type="checkbox">
+                        <h3 class="banco">Banco Galicia</h3>
+                    </div>
+                    <button><img src="../assets/Delete.png"></button>
+                </div>
+                <p>Cuenta ahorro</p>
+                <h3 id="nun-cuenta">CBU:0000283417659821345073</h3>
+            </div>
+            <div class="cuentas-individuales">
+                <div class="encabezado">
+                    <div>
+                        <input type="checkbox">
+                        <h3 class="banco">Brubank</h3>
+                    </div>    
+                    <button><img src="../assets/Delete.png"></button>
+                </div>
+                <p>Cuenta ahorro</p>
+                <h3 id="nun-cuenta">CBU:0000283417659821345073</h3>
+            </div> 
+            <div class="ver">
+                <p>Ver todo ></p>
+            </div>
+        </div>
+
+        <div class="tarjeta agregar-cuenta">
+            <div class="encabezado">
+                <div>
+                    <img src="../assets/plus-verde.png">
+                    <h3>Agregar cuenta</h3>
+                </div>    
+                <button><i class='bx bx-chevron-right'></i></button>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button class="principales">Aceptar</button>
+            <button class="secundario"><a href="./principal.html">Cancelar</a></button>
+        </div>
+
+
+    </section>
+
+    <script src="../js/main.js" type="module"></script>
+</body>
+</html>

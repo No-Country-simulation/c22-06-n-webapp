@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"  type="image/x-icon" href="../../assets/logo-app.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/transferir.css" />
+    <title>Moneda-Inicio</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../principal.html">
+                <svg width="28px" height="28px" stroke-width="1.7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M15 6L9 12L15 18" stroke="#000000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <h1>Transferir</h1> 
+            </a>
+        </nav>       
+       
+    </header>
+    <main>
+
+        <section>
+            <div class="text-card">
+                <div>
+                    <div class="bubble"><p>AP</p></div>
+                    <h2>Angela Pérez</h2>
+                </div>
+                
+                <p>CBU: 0000283417659821345073</p>
+            </div>
+
+            <div class="tarjeta"> 
+                 
+                <h3>Ingresa un monto</h3>
+
+                <div class="container-saldo">
+                    <span>$</span><input type="text" id="transferir" name="transferir" placeholder="0">
+                </div>
+                
+                <h3 id="disponible">Disponible $50000</h3>
+
+            </div>
+        </section>
+
+        <section>
+            <details class="custom-select">
+                <summary class="radios">
+                    <input type="radio" name="item" id="default" title="Motivos" checked>
+                    <input type="radio" name="item" id="item1" title="Item 1">
+                    <input type="radio" name="item" id="item2" title="Item 2">
+                    <input type="radio" name="item" id="item3" title="Item 3">
+                    <input type="radio" name="item" id="item4" title="Item 4">
+                    <input type="radio" name="item" id="item5" title="Item 5">
+                </summary>
+                <ul class="list">
+
+                    <li>
+                        <label for="item1">
+                            varios
+                            <span></span>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="item2">Alquiler</label>
+                    </li>
+
+                    <li>
+                        <label for="item3">Cuotas</label>
+                    </li>
+
+                    <li>
+                        <label for="item4">Facturas</label>
+                    </li>
+
+                    <li>
+                        <label for="item5">Préstamos</label>
+                    </li>
+
+                </ul>
+            </details>
+        </section>
+        
+            <div class="botones">
+                <button class="btn-principal"><a href="#" target="_blank">Aceptar</a></button>
+                <button class="btn-secundario"><a href="#" target="_blank">Cancelar</a></button>
+            </div>
+        
+
+    </main>
+
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

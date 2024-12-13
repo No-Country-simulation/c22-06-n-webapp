@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"  type="image/x-icon" href="../assets/logo-app.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+      integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="../css/principal.css" />
+    <title>Moneda-Inicio</title>
+</head>
+
+<body>
+
+    <header id="header-principal">
+        <div class="container-header">
+            <div class="usuario">
+                <img src="../assets/avatar-user.png" alt="foto usuario">
+                <button id="boton-perfil"><i class='bx bx-chevron-down'></i></button>
+            </div>
+            <img class="logo" src="../assets/logo-app.png">
+            <div class="iconos">
+                <i class='bx bxs-bell'></i>
+                <button id="boton-menu"><i class='bx bx-menu'></i></button>
+            </div>
+        </div>       
+    </header>
+
+    <main>
+       <aside class="menu">
+
+         <ul>
+            <li><img src="../assets/ingresar.png"><a href="./IngresarDinero.html">Ingresar</a></li>
+            <li><img src="../assets/transferir.png"><a href="./transferencia/nueva-transferencia.html">Transferir</a></li>
+            <li class="borde"><img src="../assets/retirar.png"><a href="./retirarEfectivo.html">Retirar</a></li>
+            <li><img src="../assets/servicios.png"><a href="#">Pagar servicios</a></li>
+            <li class="borde" ><img src="../assets/tarjeta.png"><a href="#">Tarjetas</a></li>
+            <li><img src="../assets/prestamos.png"><a href="#">Préstamos</a></li>
+            <li><img src="../assets/seguros.png"><a href="#">Seguros</a></li>
+            <li class="borde"><img src="../assets/descuentos.png"><a href="#">Beneficios</a></li>
+            <li><img src="../assets/Help.png"><a href="#">Ayuda</a></li>
+            <li><img src="../assets/contactenos.png"><a href="#">Contacto</a></li>
+            <li class="borde"><img src="../assets/Settings.png"><a href="#">Configuración</a></li>
+            <li><img src="../assets/cerrar-sesion.png"><a href="./formularios/iniciarSesion.html">Cerrar sesión</a></li>
+        </ul>
+        </aside>
+
+    <aside class="perfil-usuario">
+        
+        <h3>Mi cuenta</h3>
+                    
+        <div class="tarjeta perfil">
+            <img src="../assets/avatar-user.png" alt="foto perfil">
+            <h3 id="nombre">Rosa Báez</h3>
+            <button><i class='bx bx-chevron-right'></i></button>
+        </div>
+        <div class="tarjeta cvu">
+            <div class="encabezado">
+                <h3>CVU</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button>
+            </div>
+            <p id="cvu">0000234589345789072340</p>
+        </div>
+
+        <div class="tarjeta alias">
+            <div class="encabezado">
+                <h3>Alias</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button> 
+            </div>
+            <p id="alias">TELA.FLOR.CINTA</p>
+        </div>
+
+        <div class="tarjeta cuenta">
+            <div class="encabezado">
+                <h3>Cuenta N°</h3>
+                <button class="copiar"><img src="../assets/Copy.png" alt="copiar"></button> 
+            </div>
+            <p id="num-cuenta">1234567890</p>   
+            
+        </div>
+
+    </aside>
+
+    <section class="principal">
+      
+        <div class="tarjeta importe">
+            <h3>Mi moneda</h3>
+            <div class="cantidad">
+                <h2 id="saldo">$ 900.000</h2>
+                 <button><img src="../assets/Eye.png" alt="ojo"></button>
+            </div>
+
+            <a href="#" target="_blank">Ver movimientos ></a>
+        </div>
+
+        <div class="tarjeta operaciones">
+            <ul>
+                <li><a href="./IngresarDinero.html"><img src="../assets/ingresar.png" alt="moneda"></a>Ingresar</li>
+                <li><a href="./transferencia/nueva-transferencia.html"><img src="../assets/transferir.png" alt="dinero"></a>Transferir</li>
+                <li><a href="./retirarEfectivo.html"><img src="../assets/retirar.png" alt="retirar"></a>Retirar</li>
+                <li><a href="#"><img src="../assets/servicios.png" alt="servicios"></a>Servicios</li>  
+            </ul>
+
+        </div>
+
+        <div class="tarjeta carrusel">
+            <img src="../assets/tarjeta-mobile.png" alt="tarjeta">
+            <img src="../assets/descuentos-movile.png" alt="beneficios">
+            <img src="../assets/mobile-descargar.png" alt="descargar app">
+        </div>
+
+        <div class="tarjeta seguro">
+            <div class="container-seguro">
+                <div>
+                    <img src="../assets/seguros.png" alt="seguros">
+                     <h3>Seguros</h3>
+                </div>
+
+                <a><i class='bx bx-chevron-right'></i></a>
+            </div>
+
+            <p>Contrata seguridad y tranquilidad al 
+                instante.
+            </p>
+        </div>
+
+        <div class="tarjeta prestamos">
+            <div class="container-prestamos">
+                <div>
+                    <img src="../assets/prestamos.png" alt="prestamos">
+                     <h3>Préstamos</h3>
+                </div>
+                <a><i class='bx bx-chevron-right'></i></a>
+            </div>
+
+            <p> Consulta nuestra conveniente línea
+                de créditos personales.
+            </p>
+
+        </div>
+
+        <div class="tarjeta movimientos">
+            <div class="container-cabecera">
+                <h3>Mis movimientos</h3>
+                <img src="../assets/descargar.png" alt="descargar">
+            </div>
+
+            <div class="container-movimientos">
+
+                <div class="individual-movimientos">
+                    <img src="../assets/transferir.png">
+                
+                    <div class="detalle">
+                         <h3 id="usuario">Leonardo Gonzáles</h3>
+                        <p>Transferencia recibida</p>
+                    </div>
+                    <h3 id="monto-verde">+ $20.000</h3>
+                </div>
+                
+                <div class="individual-movimientos">
+                    <img src="../assets/servicios.png">
+                
+                    <div class="detalle">
+                         <h3 id="usuario">Movistar</h3>
+                        <p>Pago de servicio</p>
+                    </div>
+                    <h3 id="monto-rojo">- $25.000</h3>
+                </div>
+                               
+            </div>
+
+            <a href="#" >Ver todos ></a>
+        </div>
+
+        
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="relevante">
+            <ul>
+                <li><a href="" target="_blank">Políticas de privacidad</a></li>
+                <li><a href="" target="_blank">Términos y condiciones</a></li>
+                <li><a href="" target="_blank">Preguntas frecuentes</a></li>
+                <li><a href="" target="_blank">Sobre nosotros</a></li>
+                <li><a href="" target="_blank">Ayuda y soporte</a></li>
+                <li><a href="" target="_blank">Defensa del consumidor</a></li>
+            </ul>
+        </div>
+
+        <div class="integrantes">
+            <h3>Desarrollado por:</h3>
+            <ul>
+                <li>Hearly Huertas Perez</li>
+                <li>Cuauhtemoc Cabrera</li>
+                <li>Norma Suriano</li>
+                <li>Leonardo González</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    
+</body>
+</html>
