@@ -1,3 +1,4 @@
+
 @import url(stylesGlobales.css);
 
 body {
@@ -33,11 +34,12 @@ body {
     a{
         color: var(--color-logo);
         margin-top: 2vw;
+        font-size: 1.3vw;
     }
 
     img {
-        width: 15px;
-        height: 15px;
+        width: 1.2vw;
+        height: 1.2vw;
     }
 
     button {
@@ -62,13 +64,14 @@ body {
         text-align: center;
         text-shadow: 0px 4px 4px #00000040;
         font-family: var(--font-titulos);
-        font-size: 2em;
+        font-size: 2.3vw;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         
     }
 }
+
 
 .operaciones {
     padding: 5vw 0;
@@ -84,7 +87,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-       
+        font-size: 1.3vw;
     }
 
     a {
@@ -117,14 +120,18 @@ body {
         height: 17vw;
     }
 }
+
 .seguro, .prestamos {
     padding: 2vw;
     text-align: left;
+   
     p {
+        font-size: 1.3vw;
         color: var(--color-texto-comun);
         margin-left: 1vw;
     }
 }
+
 .container-seguro, .container-prestamos {
     display: flex;
     align-items: center;
@@ -143,7 +150,7 @@ body {
     }
 
     i {
-        font-size: 3vw;
+        font-size: 3em;
         color: var(--color-texto-comun);
         font-weight: 100;
     }
@@ -162,19 +169,20 @@ body {
         text-align: center;
         color: var(--color-logo);
         font-family: var(--color-texto-comun);
-        font-size: 1.2rem;
+        font-size: 1.5vw;
         justify-content: center;
         margin: 3% 40%;
     }
 
 }
+
 .container-cabecera {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.5vw;
         font-family: var(--font-titulos);
     }
 
@@ -213,8 +221,13 @@ body {
     }
 
     p {
+        font-size: 1.1vw;
         color: var(--color-texto-gris);
         margin-top: 1vw;
+    }
+
+    h3 {
+        font-size: 1.4vw;
     }
 
 }
@@ -223,84 +236,10 @@ body {
     text-align: left;
 }
 
- .contacto {
-    width: 65%;
-    height: auto;
-    margin: 2.5vw auto;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    background: linear-gradient(180deg, #5CA8AD 0%, #566173 100%);
-    border: 1px solid var(--color-hover);
-    box-sizing: border-box;
-    padding-top: 2vw;
-}
 
-.container-contacto {
-    padding: 2vw auto;
-    height: auto;
 
-    h2 {
-        color: var(--color-texto-boton);
-        font-family: var(--font-titulos);
-        font-size: 1.5rem;
-        margin: 1vw auto;
-        text-align: center;
 
-    }
-
-     
-}
-
-.centro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10vw;
-
-    img {
-        width: 50%;
-        height: 33vw;
-    }
-}
-
-.botones {
- 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-
-  img {
-    width: 3vw;
-    height: 3vw;
-    text-align: center;
-     
-  }
-
-  button {
-    width: 5vw;
-    height: 5vw;
-    background: var(--color-hover);
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    margin-top: 4vw;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-}
-
- .container-contacto .preguntas {
-    color: var(--color-texto-boton);
-    font-family: var(--font-titulos);
-    font-size: 1.3rem;
-    text-align: center;
-    margin: 5% 35%;
-    
-}   
+   
 
 
 @media(max-width: 700px) {
@@ -401,6 +340,13 @@ body {
         }
 
     }    
+
+    .contacto {
+       img {
+        height: 280px;
+       }
+       
+    }
               
 
 }

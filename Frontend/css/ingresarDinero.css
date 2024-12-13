@@ -205,9 +205,10 @@
 
     .botones {
         width: 91%;
+        border-radius: 10px;
         
         button {
-            height: 11vw;
+            height: 45vw;
             
         }
     }

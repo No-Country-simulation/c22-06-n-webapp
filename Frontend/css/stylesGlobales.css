@@ -123,22 +123,22 @@ aside {
     background: var(--color-background);
     border: 1px solid var(--color-hover);
     box-shadow: var(--box-shadow);
-    z-index: 200;  
-    display: none;
+   
+      
 }
 
 .cerrar-menu {
     display: none;
+    
 } 
 
 .menu{
- 
+
  position: absolute;
  z-index: 200;
  right: 0;
  padding: 2vw;
  top: 6vw;
-
 
     
     button {
@@ -210,12 +210,21 @@ aside {
 
 /*desplegable perfil*/
 
+
+
 .perfil-usuario {
     padding: 1.5vw 0;
     position: absolute;
     z-index: 20;
     left: 0;
     top: 6vw;
+
+    h3{
+        text-align: center;
+        font-size: 1.6vw;
+        font-family: var(--font-titulos);
+        color: var(--color-texto-comun);
+    }
     
 }
    
@@ -383,9 +392,15 @@ ul {
 @media(max-width: 700px) {
     
     header {
-        height: 25vw;
-        padding: 4vw 0;
+        height: 70px;
+       
                
+    }
+
+    .container-header {
+       padding-bottom: 1vw;
+        text-align: center;
+
     }
 
     .usuario {
@@ -435,7 +450,8 @@ ul {
     }
 
     .menu {
-
+      
+        top: 6vw;
         button {
             width: 5vw;
             height: 5vw;
@@ -498,6 +514,7 @@ ul {
     }
 
     .intregantes {
+        text-wrap: wrap;
         margin-bottom: 1vw;
         margin-left: 0.4vw;
     }
