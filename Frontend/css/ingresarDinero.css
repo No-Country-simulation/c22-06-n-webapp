@@ -1,19 +1,69 @@
 @import url(../css/stylesGlobales.css);
 
 
+ /*header*/
+
+ header {
+    width: 100%;
+    height: 7vw;
+   
+    background: var(--color-background-oscuro);
+    text-align: center;
+    padding: 1vw;
+   
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+
+    img {
+    width: 5vw;
+    height: 5vw;
+    }
+
+    h2 {
+    font-family: var(--font-logo);
+    font-size: 2.5vw;
+    font-weight: 200;
+    color: #eeeeee;
+    }
+
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5 vw auto;
+
+    h1 {
+        color: var(--color-logo);
+        font-size: 2rem;
+        font-family: var(--font-titulos);
+        text-align: center;
+        
+    }
+
+    i {
+        font-size: 2.5rem;
+        color: var(--color-logo);
+        padding: 1vw;
+        cursor: pointer;
+      
+    }
+
+}
+
 .principal {
  background: var(--color-background);
  padding: 3vw 0;
 
- h1 {
-    color: var(--color-logo);
-    font-size: 2rem;
-    font-family: var(--font-titulos);
-    text-align: center;
-    padding: 3vw auto;
 
- }
-
+ 
  h2 {
     color: var(--color-texto-comun);
     font-size: 1.3rem;

@@ -1,22 +1,64 @@
 @import url(../../css/stylesGlobales.css);
 
+header {
+   
+    width: 100%;
+    height: 7vw;
+    background: var(--color-background-oscuro);
+    text-align: center;
+    padding: 1vw;
+   
+}
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+
+    img {
+    width: 5vw;
+    height: 5vw;
+    }
+
+    h2 {
+    font-family: var(--font-logo);
+    font-size: 2.5vw;
+    font-weight: 200;
+    color: #eeeeee;
+    font-family: var(--font-logo);
+    }
+
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5vw auto;
+
+    h1 {
+        color: var(--color-logo);
+        font-size: 2rem;
+        font-family: var(--font-titulos);
+        text-align: center;
+        
+    }
+
+    i {
+        font-size: 2.5rem;
+        color: var(--color-logo);
+        padding: 1vw;
+        cursor: pointer;
+      
+    }
+
+}
+
 body {
     background: var(--color-background);
     width: 100%;
-}
-nav a{
-    display: flex;
-    justify-content: center;
-    margin: 4em auto;
-}
-
-h1{
-    font-family: var(--font-titulos);
-    text-align: center;
-    line-height: 1em;
-    font-size: 2em;
-    color: var(--color-principal);
-    padding-left: 0.4em;
 }
 
 h2{
@@ -35,12 +77,32 @@ h2{
     border: 1px solid var(--color-hover);
 
 }
+
 .agendar{
     display: flex;
-    padding: 1em;
-    justify-content: space-evenly;
-    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw;
+    
+    h3 {
+        font-size: 1.7rem;
+    }
+
+    i{
+        font-size: 1.8rem;
+    }
+
 }
+
+.encabezado {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+
 .agendar p{
     font-size: 1.6em;
     line-height: 1.6em;
@@ -97,4 +159,8 @@ h2{
 .input-cbu-alias::placeholder {
     font-size: 1em;
     color: #888888; /* Softer placeholder color */
+}
+
+.cbu {
+    margin-top: 6vw;
 }

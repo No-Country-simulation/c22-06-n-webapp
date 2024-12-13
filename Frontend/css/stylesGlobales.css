@@ -237,6 +237,10 @@ aside {
     border-radius: 10px;
     padding: 2vw;
     margin: 2vw;
+
+    p{
+        font-size: 1.3rem;
+    }
 }
 
 .perfil {
@@ -279,7 +283,9 @@ button .close {
     justify-content: center;
     gap: 5vw;
     margin-left: 7vw;
-    font-size: 2vw;
+   
+
+   
    
 
     img {
@@ -391,9 +397,11 @@ ul {
 
 @media(max-width: 700px) {
     
-    header {
-        height: 70px;
-       
+    #header-principal {
+        width: 100%;
+        height: 13vw;
+        padding: 2.3vw 3vw;
+        text-align: center;
                
     }
 
@@ -404,39 +412,50 @@ ul {
     }
 
     .usuario {
-        width: 12vw;
-        height: 5vw;
+        width: 15vw;
+        height: 7vw;
         padding: auto 0;
 
-        i {
-            font-size: 5vw;
+        img {
+            width: 6vw;
+            height: 6vw;
         }
 
-        img {
-            width: 5vw;
-            height: 5vw;
+        button {
+            width: 6vw;
+            height: 6vw;
+
+            i{
+                font-size: 6vw;
+            }
         }
     }
 
     .logo {
-         width: 6vw;
-         height: 6vw;
+         width: 9vw;
+         height: 9vw;
+
     }
 
     .iconos {
 
         i {
-            font-size: 4vw;
+            font-size: 6vw;
         }
 
         button {
-            width: 5vw;
-            height: 4vw;
+            width: 7vw;
+            height: 5vw;
+
+             i{
+                font-size: 5vw;
+             }
         }
     }
 
     aside {
         width: 50%;
+        
 
         img {
             width: 6vw;
@@ -451,10 +470,11 @@ ul {
 
     .menu {
       
-        top: 6vw;
+        top: 13vw;
+        
         button {
-            width: 5vw;
-            height: 5vw;
+            width: 4.5vw;
+            height: 6vw;
         }
 
         img {
@@ -473,24 +493,30 @@ ul {
         width: 7vw;
         height: 7vw;
     }
-    
-    .perfil-usuario {
+
+    .perfil-usuario .tarjeta {
        
-        h3 {
+        p {
             font-size: 3vw;
         }
 
-        p {
-            font-size: 2.5vw;
+    }
+    
+    .perfil-usuario {
+        top: 13vw;
+       
+        h3 {
+            font-size: 3.3vw;
         }
 
+      
     }
 
    .perfil-usuario .encabezado {
 
         button {
-            width: 5vw;
-            height: 5vw;
+            width: 6vw;
+            height: 6vw;
             background: transparent;
 
         }
@@ -500,6 +526,8 @@ ul {
             height: 4vw;
         }
     }
+
+    
 
     
     footer {

@@ -155,7 +155,7 @@ p {
     width: 100%;
     height: 25vw;
     background: var(--color-background);
-    padding: 15vw 2.5vw;
+    padding: 10vw 2.5vw;
 
     p{ 
         font-size: 1.6vw;

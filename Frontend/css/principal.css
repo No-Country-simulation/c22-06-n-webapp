@@ -292,6 +292,12 @@ body {
 
     }
 
+    .importe {
+         a{
+            font-size: 3.5vw;
+         }
+    }
+
     .importe img {
         width: 3vw;
         height: 3vw;
@@ -325,6 +331,18 @@ body {
             width: 7vw;
             height: 6vw;
         }
+    }
+
+    .movimientos {
+
+        a{
+            font-size: 3.5vw;
+        }
+
+       img {
+            width: 8vw;
+            height: 7vw;
+       }
     }
 
     .individual-movimientos {
