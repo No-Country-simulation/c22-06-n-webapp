@@ -7,6 +7,7 @@ header {
     background: var(--color-background-oscuro);
     text-align: center;
     padding: 1vw;
+    font-family: var(--font-logo);
    
 }
 
@@ -23,7 +24,7 @@ header {
     }
 
     h2 {
-    font-family: var(--font-logo);
+   
     font-size: 2.5vw;
     font-weight: 200;
     color: #eeeeee;
@@ -163,4 +164,24 @@ h2{
 
 .cbu {
     margin-top: 6vw;
+}
+
+@media(max-width: 700px){
+    
+    header {
+        height: 11vw;
+
+    }
+
+    .logo{
+
+        img {
+            width: 8vw;
+            height: 8vw;
+        }
+    }
+
+    .tarjeta {
+        width: 90%;
+    }
 }

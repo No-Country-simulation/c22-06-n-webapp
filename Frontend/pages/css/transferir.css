@@ -4,22 +4,60 @@ body {
     background: var(--color-background);
     width: 100%;
 }
-nav a{
+
+header {
+   
+    width: 100%;
+    height: 7vw;
+    background: var(--color-background-oscuro);
+    text-align: center;
+    padding: 1vw;
+    font-family: var(--font-logo);
+   
+}
+
+  .logo {
     display: flex;
     justify-content: center;
-    margin: 4em auto;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+
+    img {
+    width: 5vw;
+    height: 5vw;
+    }
+
 }
-h1{
-    font-family: var(--font-titulos);
-    text-align: center;
-    line-height: 1em;
-    font-size: 2em;
-    color: var(--color-principal);
-    padding-left: 0.4em;
+
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5vw auto;
+
+    h1 {
+        color: var(--color-logo);
+        font-size: 2rem;
+        font-family: var(--font-titulos);
+        text-align: center;
+        
+    }
+
+    i {
+        font-size: 2.5rem;
+        color: var(--color-logo);
+        padding: 1vw;
+        cursor: pointer;
+      
+    }
+
 }
-h2{
-    font-size: 1.7em;
-}
+
+
+
+
+
 .text-card{
     margin-left: 21vw;
     margin-bottom: 1em;
@@ -277,4 +315,45 @@ label span {
 .btn-secundario {
     background: transparent;
     text-align: center;
+}
+
+
+
+@media(max-width: 700px){
+
+    header {
+        height: 11vw;
+
+    }
+
+    .logo{
+
+        img {
+            width: 8vw;
+            height: 8vw;
+        }
+    }
+
+    .tarjeta {
+        
+        input {
+            width: 35vw;
+            height: 9vw;
+            
+        }
+    }
+
+    .botones {
+
+        button {
+            width: 90%;
+            height: 10vw;
+
+        }
+
+        a{
+            font-size: 6vw;
+        }
+    }
+
 }
