@@ -15,9 +15,9 @@
 </details>
 
 ## Simulación del producto
-[Ver Prototipo en Figma]()
-[![Ver Prototipo en Figma](![image](https://github.com/user-attachments/assets/6797070f-7766-41b3-9892-a090ff58794d)
-)](https://www.figma.com/design/oVRbQAnCwYOaz5R7cfWYmQ/Moneda?node-id=1-2&t=26ImqH9RC4LsllQC-1)
+
+![image](https://github.com/user-attachments/assets/9c920e2b-3db2-4e6a-9f76-98d6b2ac886e)
+[Ver Prototipo en Figma](https://www.figma.com/proto/oVRbQAnCwYOaz5R7cfWYmQ/Moneda?page-id=0%3A1&node-id=130-119&p=f&viewport=-418%2C87%2C0.27&t=ncegNYHT4lOU4lrQ-1&scaling=contain&content-scaling=fixed)
 
 
 ## Tecnologias
