@@ -72,6 +72,19 @@ public class UserServiceImpl implements UserService {
             user.setPassword(createUserDto.getPassword());
             user.setIsActive(true);
             user.setCreatedAt(new Date());
+
+            //Llamaria al servicio de cuenta banco
+            //Id usuario, idTipo Cuenta banco, Codigo Pais
+            /*
+             * CreateBankAccountDto{
+             * idUsuario: number;
+             * idTipoCuentaBanco: number;
+             * codigoPais: string
+             * }
+            *
+            * */
+
+
             BankAccountType bankAccountType = bankAccountTypeRepository.findById(createUserDto.getBankAccountType_id())
                     .orElseThrow(() -> new RuntimeException("Tipo de cuenta bancaria no encontrado"));
 

@@ -34,6 +34,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionTypeRepository transactionTypeRepository;
     private final TransferHistoryMapper transferHistoryMapper;
     private final DepositHistoryMapper depositHistoryMapper;
+    @Transactional
     @Override
     public ResponseEntity<Map<String, Object>> saveTransaction(CreateTransactionDto createTransactionDto, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
@@ -126,7 +127,7 @@ public class TransactionServiceImpl implements TransactionService {
           transaction.setTransactionDate(new Date());
           transaction.setCreatedAt(new Date());
           transaction.setIsActive(true);
-          TransactionType depositType = transactionTypeRepository.findByCode("02-Deposito")
+          TransactionType depositType = transactionTypeRepository.findByCode(" ")
                   .orElseThrow(() -> new RuntimeException("Tipo de transacción no encontrado"));
           transaction.setTransactionType(depositType);
           transactionRepository.save(transaction);

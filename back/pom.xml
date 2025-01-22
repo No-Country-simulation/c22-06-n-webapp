@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.0</version>
+		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.moneda</groupId>
@@ -27,7 +27,8 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,6 +65,11 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.moneda</groupId>
+			<artifactId>exceptionToolkit</artifactId>
+			<version>0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
