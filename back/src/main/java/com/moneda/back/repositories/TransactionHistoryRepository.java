@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface TransactionHistoryRepository extends JpaRepository<TransactionHistory, Integer> {
     List<TransactionHistory> findByCvuUser(String cvuUser);
+
 }

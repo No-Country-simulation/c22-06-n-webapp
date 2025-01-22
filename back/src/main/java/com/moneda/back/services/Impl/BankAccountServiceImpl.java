@@ -17,47 +17,38 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
-
+import com.moneda.utils.ResponseEntityCustom;
+import com.moneda.utils.HttpStatusResponse;
 @Service
 @AllArgsConstructor
-public class BankAccountServiceImpl implements BankAccountService {
+public class BankAccountServiceImpl implements BankAccountService{
+
     private final BankAccountRepository bankAccountRepository;
     private final BankAccountTypeRepository bankAccountTypeRepository;
     private final UserRepository userRepository;
     private final BankAccountMapper bankAccountMapper;
     private final BankAccountTypeMapper bankAccountTypeMapper;
-
     @Override
     public ResponseEntity<Map<String, Object>> listBankAccounts() {
-        Map<String, Object> response = new HashMap<>();
-        List<BankAccountDto> bankAccounts = bankAccountRepository.findByIsActiveTrue()
-                .stream()
-                .map(bankAccountMapper::toBankAccountDto)
-                .collect(Collectors.toList());
-        if(bankAccounts.isEmpty()){
-            response.put("message", "No hay datos");
-            response.put("bankAccounts", Collections.emptyList());
-        }else {
-            response.put("message", "Listas Cuentas de Banco");
-            response.put("bankAccounts", bankAccounts);
+            List<BankAccountDto> bankAccounts = bankAccountRepository.findByIsActiveTrue()
+                    .stream()
+                    .map(bankAccountMapper::toBankAccountDto)
+                    .collect(Collectors.toList());
+            return bankAccounts.isEmpty() ?
+                    ResponseEntityCustom.builderResponse(HttpStatusResponse.NOT_FOUND.getKey(), Collections.emptyList(), HttpStatusResponse.NOT_FOUND.getCode()):
+                    ResponseEntityCustom.builderResponse(HttpStatusResponse.OK.getKey(), bankAccounts, HttpStatusResponse.OK.getCode());
         }
-        return ResponseEntity.ok(response);
-    }
 
     @Override
     public ResponseEntity<Map<String, Object>> saveBankAccount(CreateBankAccountDto createBankAccount, BindingResult result) {
-        Map<String, Object> response = new HashMap<>();
         if(result.hasErrors()){
             List<String> errors = result.getFieldErrors().stream()
                     .map(err->"El campo '" + err.getField() + "' " + err.getDefaultMessage())
                     .collect(Collectors.toList());
-            response.put("message", "Error en la validación");
-            response.put("errors", errors);
-            return ResponseEntity.badRequest().body(response);
+            return ResponseEntityCustom.builderResponse(HttpStatusResponse.BAD_REQUEST.getKey(), errors, HttpStatusResponse.BAD_REQUEST.getCode());
         }
         try{
             User user = userRepository.findById(createBankAccount.getUser_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
@@ -68,15 +59,13 @@ public class BankAccountServiceImpl implements BankAccountService {
             BankAccount bankAccount = new BankAccount();
             bankAccount.setBankAccount(accountNumber);
             if (bankAccountRepository.existsByBankAccount(accountNumber)) {
-                response.put("message", "El número de cuenta ya existe");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+                ResponseEntityCustom.builderResponse("El número de cuenta ya existe", Collections.emptyList(), HttpStatusResponse.BAD_REQUEST.getCode());
             }
             bankAccount.setCvu(cvu);
             bankAccount.setBalance(BigDecimal.ZERO);
             bankAccount.setAlias(alias);
             if (bankAccountRepository.existsByAlias(alias)) {
-                response.put("message", "El alias ya existe");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+                return ResponseEntityCustom.builderResponse(HttpStatusResponse.BAD_REQUEST.getKey(), null, HttpStatusResponse.BAD_REQUEST.getCode());
             }
             bankAccount.setBankAccountType(bankAccountType);
             bankAccount.setUser(user);
@@ -85,13 +74,9 @@ public class BankAccountServiceImpl implements BankAccountService {
             bankAccountRepository.save(bankAccount);
             user.getBankAccounts().add(bankAccount);
             BankAccountDto bankAccountDto = bankAccountMapper.toBankAccountDto(bankAccount);
-            response.put("message", "Se ha creado exitosamente");
-            response.put("bankAccount", bankAccountDto);
-            return ResponseEntity.ok(response);
+            return ResponseEntityCustom.builderResponse(HttpStatusResponse.OK.getKey(), bankAccountDto, HttpStatusResponse.OK.getCode());
         }catch (Exception e){
-            response.put("message", "Error al guardar la cuenta bancaria");
-            response.put("error", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            return ResponseEntityCustom.builderResponse(HttpStatusResponse.BAD_REQUEST.getKey(), null, HttpStatusResponse.BAD_REQUEST.getCode());
         }
     }
 
